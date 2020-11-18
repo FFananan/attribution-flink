@@ -1,0 +1,52 @@
+// Copyright (c) 2014, Tencent Inc.
+// Author: Yu Rongbin <robinyu@tencent.com>
+//         Guo Zhongjie <authurguo@tencent.com>
+
+package com.tencent.attribution.flink.proto.gdt;
+option java_outer_classname = "GDTHttpPingService";
+
+option cc_generic_services = true;
+option java_generic_services = true;
+
+enum HttpPingDataType {
+  UNKNOWN = 0;
+  GDT_EXPOSURE_THIRDPARTY_MONITOR = 1;  // gdt曝光收集模块发过来的第三方曝光监测
+  GDT_EXPOSURE_DSP_MONITOR = 2;  // gdt曝光收集模块发过来的dsp曝光监测
+  WECHAT_EXPOSURE_THIRDPARTY_MONITOR = 3;  // 微信曝光收集模块发过来的第三方曝光监测
+  WECHAT_EXPOSURE_DSP_MONITOR = 4;  // 微信曝光收集模块发过来的dsp曝光监测
+  CLICK_MONITOR_FOR_MOBILEAPP_ACTIVITION = 5;
+  CLICK_DSP_MONITOR = 6;  // dsp点击监测
+  CLICK_THIRDPARTY_MONITOR = 7;  // 第三方点击监测
+  EXPOSURE_THIRDPARTY_MONITOR_FOR_ADX = 8;  // adx广告第三方曝光监测
+  CLICK_DISPATCH_REDO = 9;  // 点击转发模块重推
+  CLICK_LANDING_PAGE = 10;  // 点击落地页
+  CLICK_TRACKING_JD = 11;   // 京东实时点击传送, deprecated
+  CLICK_TRACKING_58 = 12;   // 58实时点击传送, deprecated
+  CLICK_DSP_FOR_TRACE_COLLECTION = 13;  // dsp点击转发（为了效果回流）, deprecated
+  TRACE_DSP_MONITOR = 14;   // dsp效果监测, deprecated
+  DISPATCH_FOR_ADPLATFORM = 15;  // 转发模块中给广告平台转发，转发目的用string1-5区分
+  DISPATCH_FOR_DSP = 16;  // 转发模块中给DSP转发，转发目的用string1-5区分
+  CLICK_FOR_THIRDPARTY_MONITOR = 0x0101;  // deprecated
+  CLICK_FOR_MOBILEAPP_ACTIVITION = 0x0102;  // deprecated
+  EXPOSURE_FOR_WECHAT_THIRDPARTY_MONITOR = 0x0201;  // deprecated
+  WECHAT_TRACE_DISPATCH = 0x0202;  // 微信效果转发
+}
+
+// 落地日志的数据格式
+message HttpPingRecord {
+  optional uint32 process_time = 1;  // 上报时unix时间戳
+  optional uint32 partition_time = 2;  // 分区时间YYYYMMDDHH，由process_time转换来
+  optional HttpPingDataType data_type = 3;
+  optional string url = 4;
+  optional uint32 error_code = 5;  // http_client错误码
+  optional uint32 http_status = 6;  // HTTP响应状态码
+  optional string caller_ip = 7;  // 向http_ping发请求的机器ip(Dot-decimal notation)
+  optional string local_ip = 8;  // http_ping本机ip(Dot-decimal notation)
+  // string1-5拷贝自HttpPingRequest.url_infos.business_info中相应的字段
+  optional string string1 = 9;
+  optional string string2 = 10;
+  optional string string3 = 11;
+  optional string string4 = 12;
+  optional string string5 = 13;
+  optional bool is_redirected_url = 14;
+}
