@@ -5,6 +5,7 @@ com\tencent\attribution\flink\proto\gdt\GDTHttpPingService$HttpPingRecord.class
 com\tencent\attribution\flink\storage\RedisStorage.class
 com\tencent\attribution\flink\serialization\ProtobufDeserializationSchema.class
 com\tencent\attribution\flink\flatmapper\CampaignIdCountFlatMapper.class
+com\tencent\attribution\flink\functions\BoundedOutOfOrdernessGenerator.class
 com\tencent\attribution\flink\proto\gdt\GDTHttpPingService$HttpPingRecordOrBuilder.class
 com\tencent\attribution\flink\connectors\TubeSourceFunction.class
 com\tencent\attribution\flink\proto\gdt\GDTHttpPingService$HttpPingDataType$1.class

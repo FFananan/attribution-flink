@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.tencent.attribution.flink.config.RedisConfigsTest" time="0.075" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="com.tencent.attribution.flink.config.RedisConfigsTest" time="0.08" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2020.2.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -31,7 +31,7 @@
     <property name="maven.ext.class.path" value="E:\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven-event-listener.jar"/>
     <property name="classworlds.conf" value="E:\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="GBK"/>
-    <property name="java.library.path" value="E:\jdk1.8.0_261\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:\Python39\Scripts\;C:\Python39\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;E:\Go\bin;E:\jdk1.8.0_261\bin;E:\nodejs\;C:\ProgramData\chocolatey\bin;E:\nodejs\node_global;E:\Git\cmd;E:\maven\apache-maven-3.6.3\bin;E:\maven\apache-maven-3.6.3\bin;E:\filetransport;E:\hdfs\hadoop-2.9.2\bin;E:\protobuf\bin;C:\Users\v_zefanliu\AppData\Local\Microsoft\WindowsApps;E:\IntelliJ IDEA 2020.2.3\bin;;E:\GoLand 2020.2.3\bin;;C:\Users\v_zefanliu\go\bin;E:\VSCode\bin;C:\Users\v_zefanliu\AppData\Roaming\npm;E:\Nmap;."/>
+    <property name="java.library.path" value="E:\jdk1.8.0_261\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;E:\Ruby27-x64\bin;C:\Python39\Scripts\;C:\Python39\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;E:\Go\bin;E:\jdk1.8.0_261\bin;E:\nodejs\;C:\ProgramData\chocolatey\bin;E:\nodejs\node_global;E:\Git\cmd;E:\maven\apache-maven-3.6.3\bin;E:\maven\apache-maven-3.6.3\bin;E:\filetransport;E:\hdfs\hadoop-2.9.2\bin;E:\protobuf\bin;E:\cmder;C:\Users\v_zefanliu\AppData\Local\Microsoft\WindowsApps;E:\IntelliJ IDEA 2020.2.3\bin;;E:\GoLand 2020.2.3\bin;;C:\Users\v_zefanliu\go\bin;E:\VSCode\bin;C:\Users\v_zefanliu\AppData\Roaming\npm;E:\Nmap;."/>
     <property name="maven.conf" value="E:\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3/conf"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
@@ -64,5 +64,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.tencent.attribution.flink.config.RedisConfigsTest" name="test" time="0.075"/>
+  <testcase classname="com.tencent.attribution.flink.config.RedisConfigsTest" name="test" time="0.08"/>
 </testsuite>

@@ -3,6 +3,7 @@ package com.tencent.attribution.flink;
 import com.tencent.attribution.flink.config.Configs;
 import com.tencent.attribution.flink.connectors.TubeSourceFunction;
 import com.tencent.attribution.flink.flatmapper.CampaignIdCountFlatMapper;
+import com.tencent.attribution.flink.functions.BoundedOutOfOrdernessGenerator;
 import com.tencent.attribution.flink.serialization.DeserializationSchema;
 import com.tencent.attribution.flink.serialization.ProtobufDeserializationSchema;
 import com.twitter.chill.protobuf.ProtobufSerializer;
@@ -64,7 +65,11 @@ public class CampaignIdCount {
         TubeSourceFunction<HttpPingRecord> exposureDataSource = getSourceFromTubeMQ(sessionConfigs, protobufDeserializationSchema, MSG_PER_SECOND_RATE_LIMIT);
 
         // Raw data layer for exposure data
-        DataStream<HttpPingRecord> dataStream = env.addSource(exposureDataSource).returns(HttpPingRecord.class).setParallelism(8);
+        DataStream<HttpPingRecord> dataStream = env
+                .addSource(exposureDataSource)
+                .returns(HttpPingRecord.class)
+                .setParallelism(8)
+                .assignTimestampsAndWatermarks(new BoundedOutOfOrdernessGenerator());
 
         //
         LOG.info("start to collect and process data");
