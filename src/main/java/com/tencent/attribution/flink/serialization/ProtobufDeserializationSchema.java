@@ -1,5 +1,6 @@
 package com.tencent.attribution.flink.serialization;
 
+import com.google.protobuf.AbstractMessage;
 import com.google.protobuf.GeneratedMessage;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.java.typeutils.TypeExtractor;
@@ -7,7 +8,7 @@ import org.apache.flink.configuration.Configuration;
 
 import java.lang.reflect.Method;
 
-public class ProtobufDeserializationSchema<T extends GeneratedMessage> implements DeserializationSchema<T> {
+public class ProtobufDeserializationSchema<T extends AbstractMessage> implements DeserializationSchema<T> {
 
     private transient Method parseFunc;
     private Class<T> pbClass;

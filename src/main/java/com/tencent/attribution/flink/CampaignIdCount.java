@@ -6,10 +6,10 @@ import com.tencent.attribution.flink.flatmapper.CampaignIdCountFlatMapper;
 import com.tencent.attribution.flink.functions.BoundedOutOfOrdernessGenerator;
 import com.tencent.attribution.flink.serialization.DeserializationSchema;
 import com.tencent.attribution.flink.serialization.ProtobufDeserializationSchema;
-import com.twitter.chill.protobuf.ProtobufSerializer;
 import org.apache.flink.api.common.io.ratelimiting.GuavaFlinkConnectorRateLimiter;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.tuple.Tuple2;
+import org.apache.flink.api.java.typeutils.runtime.kryo.JavaSerializer;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.connectors.tube.TubeOptions;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -29,6 +29,7 @@ public class CampaignIdCount {
     private static final String SESSION_KEY_NAME = "exposure_data";
     private static final int MSG_PER_SECOND_RATE_LIMIT = 100;
     private static final String FLINK_JOB_NAME = "flink count";
+    private static final int STREAM_PARALLELISM_NUM = 90;
 
     public static void main(String[] args) throws Exception {
         // set up redis configuration
@@ -54,11 +55,12 @@ public class CampaignIdCount {
         LOG.info("Flink execution environment is set up");
 
         // Register serialization types
-        env.getConfig().registerTypeWithKryoSerializer(HttpPingRecord.class, ProtobufSerializer.class);
+        env.getConfig().registerTypeWithKryoSerializer(HttpPingRecord.class, JavaSerializer.class);
         LOG.info("Protobuf serialization types are registered.");
 
         // Specify deserialization schema for data from the upstream
         // use class GDTHttpPingService.HttpPingRecord to serialize data
+        // 这个 protobufDeserializationSchema 类用于反序列化
         ProtobufDeserializationSchema<HttpPingRecord> protobufDeserializationSchema = new ProtobufDeserializationSchema<>(HttpPingRecord.class);
 
         // get data source from tubeMQ
@@ -68,12 +70,12 @@ public class CampaignIdCount {
         DataStream<HttpPingRecord> dataStream = env
                 .addSource(exposureDataSource)
                 .returns(HttpPingRecord.class)
-                .setParallelism(8)
                 .assignTimestampsAndWatermarks(new BoundedOutOfOrdernessGenerator());
 
         //
         LOG.info("start to collect and process data");
-        DataStream<Tuple2<String, Integer>> resultStream = dataStream.flatMap(new CampaignIdCountFlatMapper())
+        DataStream<Tuple2<String, Integer>> resultStream = dataStream
+                .flatMap(new CampaignIdCountFlatMapper())
                 .keyBy(new KeySelector<Tuple2<String, Integer>, String>() {
                     @Override
                     public String getKey(Tuple2<String, Integer> value) throws Exception {
@@ -81,9 +83,7 @@ public class CampaignIdCount {
                     }
                 })
                 // 将序号为1的字段求和
-                .sum(1)
-                // 该操作使用8个并行度来做
-                .setParallelism(8);
+                .sum(1);
 
         // fixme
         // storage the result into redis

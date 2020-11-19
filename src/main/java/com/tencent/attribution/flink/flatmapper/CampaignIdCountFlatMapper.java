@@ -1,6 +1,5 @@
 package com.tencent.attribution.flink.flatmapper;
 
-import com.tencent.attribution.flink.CampaignIdCount;
 import com.tencent.attribution.flink.proto.gdt.GDTHttpPingService;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.tuple.Tuple2;

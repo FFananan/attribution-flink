@@ -2,6 +2,8 @@
 // Author: Yu Rongbin <robinyu@tencent.com>
 //         Guo Zhongjie <authurguo@tencent.com>
 
+syntax = "proto3";
+
 package com.tencent.attribution.flink.proto.gdt;
 option java_outer_classname = "GDTHttpPingService";
 
@@ -34,19 +36,19 @@ enum HttpPingDataType {
 
 // 落地日志的数据格式
 message HttpPingRecord {
-  optional uint32 process_time = 1;  // 上报时unix时间戳
-  optional uint32 partition_time = 2;  // 分区时间YYYYMMDDHH，由process_time转换来
-  optional HttpPingDataType data_type = 3;
-  optional string url = 4;
-  optional uint32 error_code = 5;  // http_client错误码
-  optional uint32 http_status = 6;  // HTTP响应状态码
-  optional string caller_ip = 7;  // 向http_ping发请求的机器ip(Dot-decimal notation)
-  optional string local_ip = 8;  // http_ping本机ip(Dot-decimal notation)
+  uint32 process_time = 1;  // 上报时unix时间戳
+  uint32 partition_time = 2;  // 分区时间YYYYMMDDHH，由process_time转换来
+  HttpPingDataType data_type = 3;
+  string url = 4;
+  uint32 error_code = 5;  // http_client错误码
+  uint32 http_status = 6;  // HTTP响应状态码
+  string caller_ip = 7;  // 向http_ping发请求的机器ip(Dot-decimal notation)
+  string local_ip = 8;  // http_ping本机ip(Dot-decimal notation)
   // string1-5拷贝自HttpPingRequest.url_infos.business_info中相应的字段
-  optional string string1 = 9;
-  optional string string2 = 10;
-  optional string string3 = 11;
-  optional string string4 = 12;
-  optional string string5 = 13;
-  optional bool is_redirected_url = 14;
+  string string1 = 9;
+  string string2 = 10;
+  string string3 = 11;
+  string string4 = 12;
+  string string5 = 13;
+  bool is_redirected_url = 14;
 }

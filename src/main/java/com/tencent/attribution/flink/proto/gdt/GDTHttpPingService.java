@@ -4,84 +4,411 @@
 package com.tencent.attribution.flink.proto.gdt;
 
 public final class GDTHttpPingService {
-    private GDTHttpPingService() {}
+    private GDTHttpPingService() {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
     public static void registerAllExtensions(
             com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
     }
+
+    /**
+     * Protobuf enum {@code com.tencent.attribution.flink.proto.gdt.HttpPingDataType}
+     */
     public enum HttpPingDataType
             implements com.google.protobuf.ProtocolMessageEnum {
-        UNKNOWN(0, 0),
-        GDT_EXPOSURE_THIRDPARTY_MONITOR(1, 1),
-        GDT_EXPOSURE_DSP_MONITOR(2, 2),
-        WECHAT_EXPOSURE_THIRDPARTY_MONITOR(3, 3),
-        WECHAT_EXPOSURE_DSP_MONITOR(4, 4),
-        CLICK_MONITOR_FOR_MOBILEAPP_ACTIVITION(5, 5),
-        CLICK_DSP_MONITOR(6, 6),
-        CLICK_THIRDPARTY_MONITOR(7, 7),
-        EXPOSURE_THIRDPARTY_MONITOR_FOR_ADX(8, 8),
-        CLICK_DISPATCH_REDO(9, 9),
-        CLICK_LANDING_PAGE(10, 10),
-        CLICK_TRACKING_JD(11, 11),
-        CLICK_TRACKING_58(12, 12),
-        CLICK_DSP_FOR_TRACE_COLLECTION(13, 13),
-        TRACE_DSP_MONITOR(14, 14),
-        DISPATCH_FOR_ADPLATFORM(15, 15),
-        DISPATCH_FOR_DSP(16, 16),
-        CLICK_FOR_THIRDPARTY_MONITOR(17, 257),
-        CLICK_FOR_MOBILEAPP_ACTIVITION(18, 258),
-        EXPOSURE_FOR_WECHAT_THIRDPARTY_MONITOR(19, 513),
-        WECHAT_TRACE_DISPATCH(20, 514),
+        /**
+         * <code>UNKNOWN = 0;</code>
+         */
+        UNKNOWN(0),
+        /**
+         * <pre>
+         * gdt曝光收集模块发过来的第三方曝光监测
+         * </pre>
+         *
+         * <code>GDT_EXPOSURE_THIRDPARTY_MONITOR = 1;</code>
+         */
+        GDT_EXPOSURE_THIRDPARTY_MONITOR(1),
+        /**
+         * <pre>
+         * gdt曝光收集模块发过来的dsp曝光监测
+         * </pre>
+         *
+         * <code>GDT_EXPOSURE_DSP_MONITOR = 2;</code>
+         */
+        GDT_EXPOSURE_DSP_MONITOR(2),
+        /**
+         * <pre>
+         * 微信曝光收集模块发过来的第三方曝光监测
+         * </pre>
+         *
+         * <code>WECHAT_EXPOSURE_THIRDPARTY_MONITOR = 3;</code>
+         */
+        WECHAT_EXPOSURE_THIRDPARTY_MONITOR(3),
+        /**
+         * <pre>
+         * 微信曝光收集模块发过来的dsp曝光监测
+         * </pre>
+         *
+         * <code>WECHAT_EXPOSURE_DSP_MONITOR = 4;</code>
+         */
+        WECHAT_EXPOSURE_DSP_MONITOR(4),
+        /**
+         * <code>CLICK_MONITOR_FOR_MOBILEAPP_ACTIVITION = 5;</code>
+         */
+        CLICK_MONITOR_FOR_MOBILEAPP_ACTIVITION(5),
+        /**
+         * <pre>
+         * dsp点击监测
+         * </pre>
+         *
+         * <code>CLICK_DSP_MONITOR = 6;</code>
+         */
+        CLICK_DSP_MONITOR(6),
+        /**
+         * <pre>
+         * 第三方点击监测
+         * </pre>
+         *
+         * <code>CLICK_THIRDPARTY_MONITOR = 7;</code>
+         */
+        CLICK_THIRDPARTY_MONITOR(7),
+        /**
+         * <pre>
+         * adx广告第三方曝光监测
+         * </pre>
+         *
+         * <code>EXPOSURE_THIRDPARTY_MONITOR_FOR_ADX = 8;</code>
+         */
+        EXPOSURE_THIRDPARTY_MONITOR_FOR_ADX(8),
+        /**
+         * <pre>
+         * 点击转发模块重推
+         * </pre>
+         *
+         * <code>CLICK_DISPATCH_REDO = 9;</code>
+         */
+        CLICK_DISPATCH_REDO(9),
+        /**
+         * <pre>
+         * 点击落地页
+         * </pre>
+         *
+         * <code>CLICK_LANDING_PAGE = 10;</code>
+         */
+        CLICK_LANDING_PAGE(10),
+        /**
+         * <pre>
+         * 京东实时点击传送, deprecated
+         * </pre>
+         *
+         * <code>CLICK_TRACKING_JD = 11;</code>
+         */
+        CLICK_TRACKING_JD(11),
+        /**
+         * <pre>
+         * 58实时点击传送, deprecated
+         * </pre>
+         *
+         * <code>CLICK_TRACKING_58 = 12;</code>
+         */
+        CLICK_TRACKING_58(12),
+        /**
+         * <pre>
+         * dsp点击转发（为了效果回流）, deprecated
+         * </pre>
+         *
+         * <code>CLICK_DSP_FOR_TRACE_COLLECTION = 13;</code>
+         */
+        CLICK_DSP_FOR_TRACE_COLLECTION(13),
+        /**
+         * <pre>
+         * dsp效果监测, deprecated
+         * </pre>
+         *
+         * <code>TRACE_DSP_MONITOR = 14;</code>
+         */
+        TRACE_DSP_MONITOR(14),
+        /**
+         * <pre>
+         * 转发模块中给广告平台转发，转发目的用string1-5区分
+         * </pre>
+         *
+         * <code>DISPATCH_FOR_ADPLATFORM = 15;</code>
+         */
+        DISPATCH_FOR_ADPLATFORM(15),
+        /**
+         * <pre>
+         * 转发模块中给DSP转发，转发目的用string1-5区分
+         * </pre>
+         *
+         * <code>DISPATCH_FOR_DSP = 16;</code>
+         */
+        DISPATCH_FOR_DSP(16),
+        /**
+         * <pre>
+         * deprecated
+         * </pre>
+         *
+         * <code>CLICK_FOR_THIRDPARTY_MONITOR = 257;</code>
+         */
+        CLICK_FOR_THIRDPARTY_MONITOR(257),
+        /**
+         * <pre>
+         * deprecated
+         * </pre>
+         *
+         * <code>CLICK_FOR_MOBILEAPP_ACTIVITION = 258;</code>
+         */
+        CLICK_FOR_MOBILEAPP_ACTIVITION(258),
+        /**
+         * <pre>
+         * deprecated
+         * </pre>
+         *
+         * <code>EXPOSURE_FOR_WECHAT_THIRDPARTY_MONITOR = 513;</code>
+         */
+        EXPOSURE_FOR_WECHAT_THIRDPARTY_MONITOR(513),
+        /**
+         * <pre>
+         * 微信效果转发
+         * </pre>
+         *
+         * <code>WECHAT_TRACE_DISPATCH = 514;</code>
+         */
+        WECHAT_TRACE_DISPATCH(514),
+        UNRECOGNIZED(-1),
         ;
 
+        /**
+         * <code>UNKNOWN = 0;</code>
+         */
         public static final int UNKNOWN_VALUE = 0;
+        /**
+         * <pre>
+         * gdt曝光收集模块发过来的第三方曝光监测
+         * </pre>
+         *
+         * <code>GDT_EXPOSURE_THIRDPARTY_MONITOR = 1;</code>
+         */
         public static final int GDT_EXPOSURE_THIRDPARTY_MONITOR_VALUE = 1;
+        /**
+         * <pre>
+         * gdt曝光收集模块发过来的dsp曝光监测
+         * </pre>
+         *
+         * <code>GDT_EXPOSURE_DSP_MONITOR = 2;</code>
+         */
         public static final int GDT_EXPOSURE_DSP_MONITOR_VALUE = 2;
+        /**
+         * <pre>
+         * 微信曝光收集模块发过来的第三方曝光监测
+         * </pre>
+         *
+         * <code>WECHAT_EXPOSURE_THIRDPARTY_MONITOR = 3;</code>
+         */
         public static final int WECHAT_EXPOSURE_THIRDPARTY_MONITOR_VALUE = 3;
+        /**
+         * <pre>
+         * 微信曝光收集模块发过来的dsp曝光监测
+         * </pre>
+         *
+         * <code>WECHAT_EXPOSURE_DSP_MONITOR = 4;</code>
+         */
         public static final int WECHAT_EXPOSURE_DSP_MONITOR_VALUE = 4;
+        /**
+         * <code>CLICK_MONITOR_FOR_MOBILEAPP_ACTIVITION = 5;</code>
+         */
         public static final int CLICK_MONITOR_FOR_MOBILEAPP_ACTIVITION_VALUE = 5;
+        /**
+         * <pre>
+         * dsp点击监测
+         * </pre>
+         *
+         * <code>CLICK_DSP_MONITOR = 6;</code>
+         */
         public static final int CLICK_DSP_MONITOR_VALUE = 6;
+        /**
+         * <pre>
+         * 第三方点击监测
+         * </pre>
+         *
+         * <code>CLICK_THIRDPARTY_MONITOR = 7;</code>
+         */
         public static final int CLICK_THIRDPARTY_MONITOR_VALUE = 7;
+        /**
+         * <pre>
+         * adx广告第三方曝光监测
+         * </pre>
+         *
+         * <code>EXPOSURE_THIRDPARTY_MONITOR_FOR_ADX = 8;</code>
+         */
         public static final int EXPOSURE_THIRDPARTY_MONITOR_FOR_ADX_VALUE = 8;
+        /**
+         * <pre>
+         * 点击转发模块重推
+         * </pre>
+         *
+         * <code>CLICK_DISPATCH_REDO = 9;</code>
+         */
         public static final int CLICK_DISPATCH_REDO_VALUE = 9;
+        /**
+         * <pre>
+         * 点击落地页
+         * </pre>
+         *
+         * <code>CLICK_LANDING_PAGE = 10;</code>
+         */
         public static final int CLICK_LANDING_PAGE_VALUE = 10;
+        /**
+         * <pre>
+         * 京东实时点击传送, deprecated
+         * </pre>
+         *
+         * <code>CLICK_TRACKING_JD = 11;</code>
+         */
         public static final int CLICK_TRACKING_JD_VALUE = 11;
+        /**
+         * <pre>
+         * 58实时点击传送, deprecated
+         * </pre>
+         *
+         * <code>CLICK_TRACKING_58 = 12;</code>
+         */
         public static final int CLICK_TRACKING_58_VALUE = 12;
+        /**
+         * <pre>
+         * dsp点击转发（为了效果回流）, deprecated
+         * </pre>
+         *
+         * <code>CLICK_DSP_FOR_TRACE_COLLECTION = 13;</code>
+         */
         public static final int CLICK_DSP_FOR_TRACE_COLLECTION_VALUE = 13;
+        /**
+         * <pre>
+         * dsp效果监测, deprecated
+         * </pre>
+         *
+         * <code>TRACE_DSP_MONITOR = 14;</code>
+         */
         public static final int TRACE_DSP_MONITOR_VALUE = 14;
+        /**
+         * <pre>
+         * 转发模块中给广告平台转发，转发目的用string1-5区分
+         * </pre>
+         *
+         * <code>DISPATCH_FOR_ADPLATFORM = 15;</code>
+         */
         public static final int DISPATCH_FOR_ADPLATFORM_VALUE = 15;
+        /**
+         * <pre>
+         * 转发模块中给DSP转发，转发目的用string1-5区分
+         * </pre>
+         *
+         * <code>DISPATCH_FOR_DSP = 16;</code>
+         */
         public static final int DISPATCH_FOR_DSP_VALUE = 16;
+        /**
+         * <pre>
+         * deprecated
+         * </pre>
+         *
+         * <code>CLICK_FOR_THIRDPARTY_MONITOR = 257;</code>
+         */
         public static final int CLICK_FOR_THIRDPARTY_MONITOR_VALUE = 257;
+        /**
+         * <pre>
+         * deprecated
+         * </pre>
+         *
+         * <code>CLICK_FOR_MOBILEAPP_ACTIVITION = 258;</code>
+         */
         public static final int CLICK_FOR_MOBILEAPP_ACTIVITION_VALUE = 258;
+        /**
+         * <pre>
+         * deprecated
+         * </pre>
+         *
+         * <code>EXPOSURE_FOR_WECHAT_THIRDPARTY_MONITOR = 513;</code>
+         */
         public static final int EXPOSURE_FOR_WECHAT_THIRDPARTY_MONITOR_VALUE = 513;
+        /**
+         * <pre>
+         * 微信效果转发
+         * </pre>
+         *
+         * <code>WECHAT_TRACE_DISPATCH = 514;</code>
+         */
         public static final int WECHAT_TRACE_DISPATCH_VALUE = 514;
 
 
-        public final int getNumber() { return value; }
+        public final int getNumber() {
+            if (this == UNRECOGNIZED) {
+                throw new java.lang.IllegalArgumentException(
+                        "Can't get the number of an unknown enum value.");
+            }
+            return value;
+        }
 
+        /**
+         * @deprecated Use {@link #forNumber(int)} instead.
+         */
+        @java.lang.Deprecated
         public static HttpPingDataType valueOf(int value) {
+            return forNumber(value);
+        }
+
+        public static HttpPingDataType forNumber(int value) {
             switch (value) {
-                case 0: return UNKNOWN;
-                case 1: return GDT_EXPOSURE_THIRDPARTY_MONITOR;
-                case 2: return GDT_EXPOSURE_DSP_MONITOR;
-                case 3: return WECHAT_EXPOSURE_THIRDPARTY_MONITOR;
-                case 4: return WECHAT_EXPOSURE_DSP_MONITOR;
-                case 5: return CLICK_MONITOR_FOR_MOBILEAPP_ACTIVITION;
-                case 6: return CLICK_DSP_MONITOR;
-                case 7: return CLICK_THIRDPARTY_MONITOR;
-                case 8: return EXPOSURE_THIRDPARTY_MONITOR_FOR_ADX;
-                case 9: return CLICK_DISPATCH_REDO;
-                case 10: return CLICK_LANDING_PAGE;
-                case 11: return CLICK_TRACKING_JD;
-                case 12: return CLICK_TRACKING_58;
-                case 13: return CLICK_DSP_FOR_TRACE_COLLECTION;
-                case 14: return TRACE_DSP_MONITOR;
-                case 15: return DISPATCH_FOR_ADPLATFORM;
-                case 16: return DISPATCH_FOR_DSP;
-                case 257: return CLICK_FOR_THIRDPARTY_MONITOR;
-                case 258: return CLICK_FOR_MOBILEAPP_ACTIVITION;
-                case 513: return EXPOSURE_FOR_WECHAT_THIRDPARTY_MONITOR;
-                case 514: return WECHAT_TRACE_DISPATCH;
-                default: return null;
+                case 0:
+                    return UNKNOWN;
+                case 1:
+                    return GDT_EXPOSURE_THIRDPARTY_MONITOR;
+                case 2:
+                    return GDT_EXPOSURE_DSP_MONITOR;
+                case 3:
+                    return WECHAT_EXPOSURE_THIRDPARTY_MONITOR;
+                case 4:
+                    return WECHAT_EXPOSURE_DSP_MONITOR;
+                case 5:
+                    return CLICK_MONITOR_FOR_MOBILEAPP_ACTIVITION;
+                case 6:
+                    return CLICK_DSP_MONITOR;
+                case 7:
+                    return CLICK_THIRDPARTY_MONITOR;
+                case 8:
+                    return EXPOSURE_THIRDPARTY_MONITOR_FOR_ADX;
+                case 9:
+                    return CLICK_DISPATCH_REDO;
+                case 10:
+                    return CLICK_LANDING_PAGE;
+                case 11:
+                    return CLICK_TRACKING_JD;
+                case 12:
+                    return CLICK_TRACKING_58;
+                case 13:
+                    return CLICK_DSP_FOR_TRACE_COLLECTION;
+                case 14:
+                    return TRACE_DSP_MONITOR;
+                case 15:
+                    return DISPATCH_FOR_ADPLATFORM;
+                case 16:
+                    return DISPATCH_FOR_DSP;
+                case 257:
+                    return CLICK_FOR_THIRDPARTY_MONITOR;
+                case 258:
+                    return CLICK_FOR_MOBILEAPP_ACTIVITION;
+                case 513:
+                    return EXPOSURE_FOR_WECHAT_THIRDPARTY_MONITOR;
+                case 514:
+                    return WECHAT_TRACE_DISPATCH;
+                default:
+                    return null;
             }
         }
 
@@ -89,30 +416,31 @@ public final class GDTHttpPingService {
         internalGetValueMap() {
             return internalValueMap;
         }
-        private static com.google.protobuf.Internal.EnumLiteMap<HttpPingDataType>
-                internalValueMap =
+
+        private static final com.google.protobuf.Internal.EnumLiteMap<
+                HttpPingDataType> internalValueMap =
                 new com.google.protobuf.Internal.EnumLiteMap<HttpPingDataType>() {
                     public HttpPingDataType findValueByNumber(int number) {
-                        return HttpPingDataType.valueOf(number);
+                        return HttpPingDataType.forNumber(number);
                     }
                 };
 
         public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
-            return getDescriptor().getValues().get(index);
+            return getDescriptor().getValues().get(ordinal());
         }
+
         public final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptorForType() {
             return getDescriptor();
         }
+
         public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
             return com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.getDescriptor().getEnumTypes().get(0);
         }
 
-        private static final HttpPingDataType[] VALUES = {
-                UNKNOWN, GDT_EXPOSURE_THIRDPARTY_MONITOR, GDT_EXPOSURE_DSP_MONITOR, WECHAT_EXPOSURE_THIRDPARTY_MONITOR, WECHAT_EXPOSURE_DSP_MONITOR, CLICK_MONITOR_FOR_MOBILEAPP_ACTIVITION, CLICK_DSP_MONITOR, CLICK_THIRDPARTY_MONITOR, EXPOSURE_THIRDPARTY_MONITOR_FOR_ADX, CLICK_DISPATCH_REDO, CLICK_LANDING_PAGE, CLICK_TRACKING_JD, CLICK_TRACKING_58, CLICK_DSP_FOR_TRACE_COLLECTION, TRACE_DSP_MONITOR, DISPATCH_FOR_ADPLATFORM, DISPATCH_FOR_DSP, CLICK_FOR_THIRDPARTY_MONITOR, CLICK_FOR_MOBILEAPP_ACTIVITION, EXPOSURE_FOR_WECHAT_THIRDPARTY_MONITOR, WECHAT_TRACE_DISPATCH,
-        };
+        private static final HttpPingDataType[] VALUES = values();
 
         public static HttpPingDataType valueOf(
                 com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
@@ -120,431 +448,210 @@ public final class GDTHttpPingService {
                 throw new java.lang.IllegalArgumentException(
                         "EnumValueDescriptor is not for this type.");
             }
+            if (desc.getIndex() == -1) {
+                return UNRECOGNIZED;
+            }
             return VALUES[desc.getIndex()];
         }
 
-        private final int index;
         private final int value;
 
-        private HttpPingDataType(int index, int value) {
-            this.index = index;
+        private HttpPingDataType(int value) {
             this.value = value;
         }
 
         // @@protoc_insertion_point(enum_scope:com.tencent.attribution.flink.proto.gdt.HttpPingDataType)
     }
 
-    public interface HttpPingRecordOrBuilder
-            extends com.google.protobuf.MessageOrBuilder {
+    public interface HttpPingRecordOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:com.tencent.attribution.flink.proto.gdt.HttpPingRecord)
+            com.google.protobuf.MessageOrBuilder {
 
-        // optional uint32 process_time = 1;
-        boolean hasProcessTime();
+        /**
+         * <pre>
+         * 上报时unix时间戳
+         * </pre>
+         *
+         * <code>uint32 process_time = 1;</code>
+         */
         int getProcessTime();
 
-        // optional uint32 partition_time = 2;
-        boolean hasPartitionTime();
+        /**
+         * <pre>
+         * 分区时间YYYYMMDDHH，由process_time转换来
+         * </pre>
+         *
+         * <code>uint32 partition_time = 2;</code>
+         */
         int getPartitionTime();
 
-        // optional .com.tencent.attribution.flink.proto.gdt.HttpPingDataType data_type = 3;
-        boolean hasDataType();
+        /**
+         * <code>.com.tencent.attribution.flink.proto.gdt.HttpPingDataType data_type = 3;</code>
+         */
+        int getDataTypeValue();
+
+        /**
+         * <code>.com.tencent.attribution.flink.proto.gdt.HttpPingDataType data_type = 3;</code>
+         */
         com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType getDataType();
 
-        // optional string url = 4;
-        boolean hasUrl();
-        String getUrl();
+        /**
+         * <code>string url = 4;</code>
+         */
+        java.lang.String getUrl();
 
-        // optional uint32 error_code = 5;
-        boolean hasErrorCode();
+        /**
+         * <code>string url = 4;</code>
+         */
+        com.google.protobuf.ByteString
+        getUrlBytes();
+
+        /**
+         * <pre>
+         * http_client错误码
+         * </pre>
+         *
+         * <code>uint32 error_code = 5;</code>
+         */
         int getErrorCode();
 
-        // optional uint32 http_status = 6;
-        boolean hasHttpStatus();
+        /**
+         * <pre>
+         * HTTP响应状态码
+         * </pre>
+         *
+         * <code>uint32 http_status = 6;</code>
+         */
         int getHttpStatus();
 
-        // optional string caller_ip = 7;
-        boolean hasCallerIp();
-        String getCallerIp();
+        /**
+         * <pre>
+         * 向http_ping发请求的机器ip(Dot-decimal notation)
+         * </pre>
+         *
+         * <code>string caller_ip = 7;</code>
+         */
+        java.lang.String getCallerIp();
 
-        // optional string local_ip = 8;
-        boolean hasLocalIp();
-        String getLocalIp();
+        /**
+         * <pre>
+         * 向http_ping发请求的机器ip(Dot-decimal notation)
+         * </pre>
+         *
+         * <code>string caller_ip = 7;</code>
+         */
+        com.google.protobuf.ByteString
+        getCallerIpBytes();
 
-        // optional string string1 = 9;
-        boolean hasString1();
-        String getString1();
+        /**
+         * <pre>
+         * http_ping本机ip(Dot-decimal notation)
+         * </pre>
+         *
+         * <code>string local_ip = 8;</code>
+         */
+        java.lang.String getLocalIp();
 
-        // optional string string2 = 10;
-        boolean hasString2();
-        String getString2();
+        /**
+         * <pre>
+         * http_ping本机ip(Dot-decimal notation)
+         * </pre>
+         *
+         * <code>string local_ip = 8;</code>
+         */
+        com.google.protobuf.ByteString
+        getLocalIpBytes();
 
-        // optional string string3 = 11;
-        boolean hasString3();
-        String getString3();
+        /**
+         * <pre>
+         * string1-5拷贝自HttpPingRequest.url_infos.business_info中相应的字段
+         * </pre>
+         *
+         * <code>string string1 = 9;</code>
+         */
+        java.lang.String getString1();
 
-        // optional string string4 = 12;
-        boolean hasString4();
-        String getString4();
+        /**
+         * <pre>
+         * string1-5拷贝自HttpPingRequest.url_infos.business_info中相应的字段
+         * </pre>
+         *
+         * <code>string string1 = 9;</code>
+         */
+        com.google.protobuf.ByteString
+        getString1Bytes();
 
-        // optional string string5 = 13;
-        boolean hasString5();
-        String getString5();
+        /**
+         * <code>string string2 = 10;</code>
+         */
+        java.lang.String getString2();
 
-        // optional bool is_redirected_url = 14;
-        boolean hasIsRedirectedUrl();
+        /**
+         * <code>string string2 = 10;</code>
+         */
+        com.google.protobuf.ByteString
+        getString2Bytes();
+
+        /**
+         * <code>string string3 = 11;</code>
+         */
+        java.lang.String getString3();
+
+        /**
+         * <code>string string3 = 11;</code>
+         */
+        com.google.protobuf.ByteString
+        getString3Bytes();
+
+        /**
+         * <code>string string4 = 12;</code>
+         */
+        java.lang.String getString4();
+
+        /**
+         * <code>string string4 = 12;</code>
+         */
+        com.google.protobuf.ByteString
+        getString4Bytes();
+
+        /**
+         * <code>string string5 = 13;</code>
+         */
+        java.lang.String getString5();
+
+        /**
+         * <code>string string5 = 13;</code>
+         */
+        com.google.protobuf.ByteString
+        getString5Bytes();
+
+        /**
+         * <code>bool is_redirected_url = 14;</code>
+         */
         boolean getIsRedirectedUrl();
     }
+
+    /**
+     * <pre>
+     * 落地日志的数据格式
+     * </pre>
+     * <p>
+     * Protobuf type {@code com.tencent.attribution.flink.proto.gdt.HttpPingRecord}
+     */
     public static final class HttpPingRecord extends
-            com.google.protobuf.GeneratedMessage
-            implements HttpPingRecordOrBuilder {
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:com.tencent.attribution.flink.proto.gdt.HttpPingRecord)
+            HttpPingRecordOrBuilder {
+        private static final long serialVersionUID = 0L;
+
         // Use HttpPingRecord.newBuilder() to construct.
-        private HttpPingRecord(Builder builder) {
+        private HttpPingRecord(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-        private HttpPingRecord(boolean noInit) {}
 
-        private static final HttpPingRecord defaultInstance;
-        public static HttpPingRecord getDefaultInstance() {
-            return defaultInstance;
-        }
-
-        public HttpPingRecord getDefaultInstanceForType() {
-            return defaultInstance;
-        }
-
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_fieldAccessorTable;
-        }
-
-        private int bitField0_;
-        // optional uint32 process_time = 1;
-        public static final int PROCESS_TIME_FIELD_NUMBER = 1;
-        private int processTime_;
-        public boolean hasProcessTime() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        public int getProcessTime() {
-            return processTime_;
-        }
-
-        // optional uint32 partition_time = 2;
-        public static final int PARTITION_TIME_FIELD_NUMBER = 2;
-        private int partitionTime_;
-        public boolean hasPartitionTime() {
-            return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        public int getPartitionTime() {
-            return partitionTime_;
-        }
-
-        // optional .com.tencent.attribution.flink.proto.gdt.HttpPingDataType data_type = 3;
-        public static final int DATA_TYPE_FIELD_NUMBER = 3;
-        private com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType dataType_;
-        public boolean hasDataType() {
-            return ((bitField0_ & 0x00000004) == 0x00000004);
-        }
-        public com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType getDataType() {
-            return dataType_;
-        }
-
-        // optional string url = 4;
-        public static final int URL_FIELD_NUMBER = 4;
-        private java.lang.Object url_;
-        public boolean hasUrl() {
-            return ((bitField0_ & 0x00000008) == 0x00000008);
-        }
-        public String getUrl() {
-            java.lang.Object ref = url_;
-            if (ref instanceof String) {
-                return (String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
-                if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-                    url_ = s;
-                }
-                return s;
-            }
-        }
-        private com.google.protobuf.ByteString getUrlBytes() {
-            java.lang.Object ref = url_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-                url_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        // optional uint32 error_code = 5;
-        public static final int ERROR_CODE_FIELD_NUMBER = 5;
-        private int errorCode_;
-        public boolean hasErrorCode() {
-            return ((bitField0_ & 0x00000010) == 0x00000010);
-        }
-        public int getErrorCode() {
-            return errorCode_;
-        }
-
-        // optional uint32 http_status = 6;
-        public static final int HTTP_STATUS_FIELD_NUMBER = 6;
-        private int httpStatus_;
-        public boolean hasHttpStatus() {
-            return ((bitField0_ & 0x00000020) == 0x00000020);
-        }
-        public int getHttpStatus() {
-            return httpStatus_;
-        }
-
-        // optional string caller_ip = 7;
-        public static final int CALLER_IP_FIELD_NUMBER = 7;
-        private java.lang.Object callerIp_;
-        public boolean hasCallerIp() {
-            return ((bitField0_ & 0x00000040) == 0x00000040);
-        }
-        public String getCallerIp() {
-            java.lang.Object ref = callerIp_;
-            if (ref instanceof String) {
-                return (String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
-                if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-                    callerIp_ = s;
-                }
-                return s;
-            }
-        }
-        private com.google.protobuf.ByteString getCallerIpBytes() {
-            java.lang.Object ref = callerIp_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-                callerIp_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        // optional string local_ip = 8;
-        public static final int LOCAL_IP_FIELD_NUMBER = 8;
-        private java.lang.Object localIp_;
-        public boolean hasLocalIp() {
-            return ((bitField0_ & 0x00000080) == 0x00000080);
-        }
-        public String getLocalIp() {
-            java.lang.Object ref = localIp_;
-            if (ref instanceof String) {
-                return (String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
-                if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-                    localIp_ = s;
-                }
-                return s;
-            }
-        }
-        private com.google.protobuf.ByteString getLocalIpBytes() {
-            java.lang.Object ref = localIp_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-                localIp_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        // optional string string1 = 9;
-        public static final int STRING1_FIELD_NUMBER = 9;
-        private java.lang.Object string1_;
-        public boolean hasString1() {
-            return ((bitField0_ & 0x00000100) == 0x00000100);
-        }
-        public String getString1() {
-            java.lang.Object ref = string1_;
-            if (ref instanceof String) {
-                return (String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
-                if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-                    string1_ = s;
-                }
-                return s;
-            }
-        }
-        private com.google.protobuf.ByteString getString1Bytes() {
-            java.lang.Object ref = string1_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-                string1_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        // optional string string2 = 10;
-        public static final int STRING2_FIELD_NUMBER = 10;
-        private java.lang.Object string2_;
-        public boolean hasString2() {
-            return ((bitField0_ & 0x00000200) == 0x00000200);
-        }
-        public String getString2() {
-            java.lang.Object ref = string2_;
-            if (ref instanceof String) {
-                return (String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
-                if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-                    string2_ = s;
-                }
-                return s;
-            }
-        }
-        private com.google.protobuf.ByteString getString2Bytes() {
-            java.lang.Object ref = string2_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-                string2_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        // optional string string3 = 11;
-        public static final int STRING3_FIELD_NUMBER = 11;
-        private java.lang.Object string3_;
-        public boolean hasString3() {
-            return ((bitField0_ & 0x00000400) == 0x00000400);
-        }
-        public String getString3() {
-            java.lang.Object ref = string3_;
-            if (ref instanceof String) {
-                return (String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
-                if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-                    string3_ = s;
-                }
-                return s;
-            }
-        }
-        private com.google.protobuf.ByteString getString3Bytes() {
-            java.lang.Object ref = string3_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-                string3_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        // optional string string4 = 12;
-        public static final int STRING4_FIELD_NUMBER = 12;
-        private java.lang.Object string4_;
-        public boolean hasString4() {
-            return ((bitField0_ & 0x00000800) == 0x00000800);
-        }
-        public String getString4() {
-            java.lang.Object ref = string4_;
-            if (ref instanceof String) {
-                return (String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
-                if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-                    string4_ = s;
-                }
-                return s;
-            }
-        }
-        private com.google.protobuf.ByteString getString4Bytes() {
-            java.lang.Object ref = string4_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-                string4_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        // optional string string5 = 13;
-        public static final int STRING5_FIELD_NUMBER = 13;
-        private java.lang.Object string5_;
-        public boolean hasString5() {
-            return ((bitField0_ & 0x00001000) == 0x00001000);
-        }
-        public String getString5() {
-            java.lang.Object ref = string5_;
-            if (ref instanceof String) {
-                return (String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
-                if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-                    string5_ = s;
-                }
-                return s;
-            }
-        }
-        private com.google.protobuf.ByteString getString5Bytes() {
-            java.lang.Object ref = string5_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-                string5_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        // optional bool is_redirected_url = 14;
-        public static final int IS_REDIRECTED_URL_FIELD_NUMBER = 14;
-        private boolean isRedirectedUrl_;
-        public boolean hasIsRedirectedUrl() {
-            return ((bitField0_ & 0x00002000) == 0x00002000);
-        }
-        public boolean getIsRedirectedUrl() {
-            return isRedirectedUrl_;
-        }
-
-        private void initFields() {
-            processTime_ = 0;
-            partitionTime_ = 0;
-            dataType_ = com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType.UNKNOWN;
+        private HttpPingRecord() {
+            dataType_ = 0;
             url_ = "";
-            errorCode_ = 0;
-            httpStatus_ = 0;
             callerIp_ = "";
             localIp_ = "";
             string1_ = "";
@@ -552,230 +659,878 @@ public final class GDTHttpPingService {
             string3_ = "";
             string4_ = "";
             string5_ = "";
-            isRedirectedUrl_ = false;
         }
+
+        @java.lang.Override
+        @SuppressWarnings({"unused"})
+        protected java.lang.Object newInstance(
+                UnusedPrivateParameter unused) {
+            return new HttpPingRecord();
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
+        }
+
+        private HttpPingRecord(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            if (extensionRegistry == null) {
+                throw new java.lang.NullPointerException();
+            }
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        case 8: {
+
+                            processTime_ = input.readUInt32();
+                            break;
+                        }
+                        case 16: {
+
+                            partitionTime_ = input.readUInt32();
+                            break;
+                        }
+                        case 24: {
+                            int rawValue = input.readEnum();
+
+                            dataType_ = rawValue;
+                            break;
+                        }
+                        case 34: {
+                            java.lang.String s = input.readStringRequireUtf8();
+
+                            url_ = s;
+                            break;
+                        }
+                        case 40: {
+
+                            errorCode_ = input.readUInt32();
+                            break;
+                        }
+                        case 48: {
+
+                            httpStatus_ = input.readUInt32();
+                            break;
+                        }
+                        case 58: {
+                            java.lang.String s = input.readStringRequireUtf8();
+
+                            callerIp_ = s;
+                            break;
+                        }
+                        case 66: {
+                            java.lang.String s = input.readStringRequireUtf8();
+
+                            localIp_ = s;
+                            break;
+                        }
+                        case 74: {
+                            java.lang.String s = input.readStringRequireUtf8();
+
+                            string1_ = s;
+                            break;
+                        }
+                        case 82: {
+                            java.lang.String s = input.readStringRequireUtf8();
+
+                            string2_ = s;
+                            break;
+                        }
+                        case 90: {
+                            java.lang.String s = input.readStringRequireUtf8();
+
+                            string3_ = s;
+                            break;
+                        }
+                        case 98: {
+                            java.lang.String s = input.readStringRequireUtf8();
+
+                            string4_ = s;
+                            break;
+                        }
+                        case 106: {
+                            java.lang.String s = input.readStringRequireUtf8();
+
+                            string5_ = s;
+                            break;
+                        }
+                        case 112: {
+
+                            isRedirectedUrl_ = input.readBool();
+                            break;
+                        }
+                        default: {
+                            if (!parseUnknownField(
+                                    input, unknownFields, extensionRegistry, tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                this.unknownFields = unknownFields.build();
+                makeExtensionsImmutable();
+            }
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord.class, com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord.Builder.class);
+        }
+
+        public static final int PROCESS_TIME_FIELD_NUMBER = 1;
+        private int processTime_;
+
+        /**
+         * <pre>
+         * 上报时unix时间戳
+         * </pre>
+         *
+         * <code>uint32 process_time = 1;</code>
+         */
+        public int getProcessTime() {
+            return processTime_;
+        }
+
+        public static final int PARTITION_TIME_FIELD_NUMBER = 2;
+        private int partitionTime_;
+
+        /**
+         * <pre>
+         * 分区时间YYYYMMDDHH，由process_time转换来
+         * </pre>
+         *
+         * <code>uint32 partition_time = 2;</code>
+         */
+        public int getPartitionTime() {
+            return partitionTime_;
+        }
+
+        public static final int DATA_TYPE_FIELD_NUMBER = 3;
+        private int dataType_;
+
+        /**
+         * <code>.com.tencent.attribution.flink.proto.gdt.HttpPingDataType data_type = 3;</code>
+         */
+        public int getDataTypeValue() {
+            return dataType_;
+        }
+
+        /**
+         * <code>.com.tencent.attribution.flink.proto.gdt.HttpPingDataType data_type = 3;</code>
+         */
+        public com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType getDataType() {
+            @SuppressWarnings("deprecation")
+            com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType result = com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType.valueOf(dataType_);
+            return result == null ? com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType.UNRECOGNIZED : result;
+        }
+
+        public static final int URL_FIELD_NUMBER = 4;
+        private volatile java.lang.Object url_;
+
+        /**
+         * <code>string url = 4;</code>
+         */
+        public java.lang.String getUrl() {
+            java.lang.Object ref = url_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                url_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string url = 4;</code>
+         */
+        public com.google.protobuf.ByteString
+        getUrlBytes() {
+            java.lang.Object ref = url_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                url_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        public static final int ERROR_CODE_FIELD_NUMBER = 5;
+        private int errorCode_;
+
+        /**
+         * <pre>
+         * http_client错误码
+         * </pre>
+         *
+         * <code>uint32 error_code = 5;</code>
+         */
+        public int getErrorCode() {
+            return errorCode_;
+        }
+
+        public static final int HTTP_STATUS_FIELD_NUMBER = 6;
+        private int httpStatus_;
+
+        /**
+         * <pre>
+         * HTTP响应状态码
+         * </pre>
+         *
+         * <code>uint32 http_status = 6;</code>
+         */
+        public int getHttpStatus() {
+            return httpStatus_;
+        }
+
+        public static final int CALLER_IP_FIELD_NUMBER = 7;
+        private volatile java.lang.Object callerIp_;
+
+        /**
+         * <pre>
+         * 向http_ping发请求的机器ip(Dot-decimal notation)
+         * </pre>
+         *
+         * <code>string caller_ip = 7;</code>
+         */
+        public java.lang.String getCallerIp() {
+            java.lang.Object ref = callerIp_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                callerIp_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <pre>
+         * 向http_ping发请求的机器ip(Dot-decimal notation)
+         * </pre>
+         *
+         * <code>string caller_ip = 7;</code>
+         */
+        public com.google.protobuf.ByteString
+        getCallerIpBytes() {
+            java.lang.Object ref = callerIp_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                callerIp_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        public static final int LOCAL_IP_FIELD_NUMBER = 8;
+        private volatile java.lang.Object localIp_;
+
+        /**
+         * <pre>
+         * http_ping本机ip(Dot-decimal notation)
+         * </pre>
+         *
+         * <code>string local_ip = 8;</code>
+         */
+        public java.lang.String getLocalIp() {
+            java.lang.Object ref = localIp_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                localIp_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <pre>
+         * http_ping本机ip(Dot-decimal notation)
+         * </pre>
+         *
+         * <code>string local_ip = 8;</code>
+         */
+        public com.google.protobuf.ByteString
+        getLocalIpBytes() {
+            java.lang.Object ref = localIp_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                localIp_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        public static final int STRING1_FIELD_NUMBER = 9;
+        private volatile java.lang.Object string1_;
+
+        /**
+         * <pre>
+         * string1-5拷贝自HttpPingRequest.url_infos.business_info中相应的字段
+         * </pre>
+         *
+         * <code>string string1 = 9;</code>
+         */
+        public java.lang.String getString1() {
+            java.lang.Object ref = string1_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                string1_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <pre>
+         * string1-5拷贝自HttpPingRequest.url_infos.business_info中相应的字段
+         * </pre>
+         *
+         * <code>string string1 = 9;</code>
+         */
+        public com.google.protobuf.ByteString
+        getString1Bytes() {
+            java.lang.Object ref = string1_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                string1_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        public static final int STRING2_FIELD_NUMBER = 10;
+        private volatile java.lang.Object string2_;
+
+        /**
+         * <code>string string2 = 10;</code>
+         */
+        public java.lang.String getString2() {
+            java.lang.Object ref = string2_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                string2_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string string2 = 10;</code>
+         */
+        public com.google.protobuf.ByteString
+        getString2Bytes() {
+            java.lang.Object ref = string2_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                string2_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        public static final int STRING3_FIELD_NUMBER = 11;
+        private volatile java.lang.Object string3_;
+
+        /**
+         * <code>string string3 = 11;</code>
+         */
+        public java.lang.String getString3() {
+            java.lang.Object ref = string3_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                string3_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string string3 = 11;</code>
+         */
+        public com.google.protobuf.ByteString
+        getString3Bytes() {
+            java.lang.Object ref = string3_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                string3_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        public static final int STRING4_FIELD_NUMBER = 12;
+        private volatile java.lang.Object string4_;
+
+        /**
+         * <code>string string4 = 12;</code>
+         */
+        public java.lang.String getString4() {
+            java.lang.Object ref = string4_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                string4_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string string4 = 12;</code>
+         */
+        public com.google.protobuf.ByteString
+        getString4Bytes() {
+            java.lang.Object ref = string4_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                string4_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        public static final int STRING5_FIELD_NUMBER = 13;
+        private volatile java.lang.Object string5_;
+
+        /**
+         * <code>string string5 = 13;</code>
+         */
+        public java.lang.String getString5() {
+            java.lang.Object ref = string5_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                string5_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string string5 = 13;</code>
+         */
+        public com.google.protobuf.ByteString
+        getString5Bytes() {
+            java.lang.Object ref = string5_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                string5_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        public static final int IS_REDIRECTED_URL_FIELD_NUMBER = 14;
+        private boolean isRedirectedUrl_;
+
+        /**
+         * <code>bool is_redirected_url = 14;</code>
+         */
+        public boolean getIsRedirectedUrl() {
+            return isRedirectedUrl_;
+        }
+
         private byte memoizedIsInitialized = -1;
+
+        @java.lang.Override
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
-            if (isInitialized != -1) return isInitialized == 1;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
 
             memoizedIsInitialized = 1;
             return true;
         }
 
+        @java.lang.Override
         public void writeTo(com.google.protobuf.CodedOutputStream output)
                 throws java.io.IOException {
-            getSerializedSize();
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            if (processTime_ != 0) {
                 output.writeUInt32(1, processTime_);
             }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            if (partitionTime_ != 0) {
                 output.writeUInt32(2, partitionTime_);
             }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                output.writeEnum(3, dataType_.getNumber());
+            if (dataType_ != com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType.UNKNOWN.getNumber()) {
+                output.writeEnum(3, dataType_);
             }
-            if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                output.writeBytes(4, getUrlBytes());
+            if (!getUrlBytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 4, url_);
             }
-            if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            if (errorCode_ != 0) {
                 output.writeUInt32(5, errorCode_);
             }
-            if (((bitField0_ & 0x00000020) == 0x00000020)) {
+            if (httpStatus_ != 0) {
                 output.writeUInt32(6, httpStatus_);
             }
-            if (((bitField0_ & 0x00000040) == 0x00000040)) {
-                output.writeBytes(7, getCallerIpBytes());
+            if (!getCallerIpBytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 7, callerIp_);
             }
-            if (((bitField0_ & 0x00000080) == 0x00000080)) {
-                output.writeBytes(8, getLocalIpBytes());
+            if (!getLocalIpBytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 8, localIp_);
             }
-            if (((bitField0_ & 0x00000100) == 0x00000100)) {
-                output.writeBytes(9, getString1Bytes());
+            if (!getString1Bytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 9, string1_);
             }
-            if (((bitField0_ & 0x00000200) == 0x00000200)) {
-                output.writeBytes(10, getString2Bytes());
+            if (!getString2Bytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 10, string2_);
             }
-            if (((bitField0_ & 0x00000400) == 0x00000400)) {
-                output.writeBytes(11, getString3Bytes());
+            if (!getString3Bytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 11, string3_);
             }
-            if (((bitField0_ & 0x00000800) == 0x00000800)) {
-                output.writeBytes(12, getString4Bytes());
+            if (!getString4Bytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 12, string4_);
             }
-            if (((bitField0_ & 0x00001000) == 0x00001000)) {
-                output.writeBytes(13, getString5Bytes());
+            if (!getString5Bytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 13, string5_);
             }
-            if (((bitField0_ & 0x00002000) == 0x00002000)) {
+            if (isRedirectedUrl_ != false) {
                 output.writeBool(14, isRedirectedUrl_);
             }
-            getUnknownFields().writeTo(output);
+            unknownFields.writeTo(output);
         }
 
-        private int memoizedSerializedSize = -1;
+        @java.lang.Override
         public int getSerializedSize() {
-            int size = memoizedSerializedSize;
+            int size = memoizedSize;
             if (size != -1) return size;
 
             size = 0;
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            if (processTime_ != 0) {
                 size += com.google.protobuf.CodedOutputStream
                         .computeUInt32Size(1, processTime_);
             }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            if (partitionTime_ != 0) {
                 size += com.google.protobuf.CodedOutputStream
                         .computeUInt32Size(2, partitionTime_);
             }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            if (dataType_ != com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType.UNKNOWN.getNumber()) {
                 size += com.google.protobuf.CodedOutputStream
-                        .computeEnumSize(3, dataType_.getNumber());
+                        .computeEnumSize(3, dataType_);
             }
-            if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(4, getUrlBytes());
+            if (!getUrlBytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, url_);
             }
-            if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            if (errorCode_ != 0) {
                 size += com.google.protobuf.CodedOutputStream
                         .computeUInt32Size(5, errorCode_);
             }
-            if (((bitField0_ & 0x00000020) == 0x00000020)) {
+            if (httpStatus_ != 0) {
                 size += com.google.protobuf.CodedOutputStream
                         .computeUInt32Size(6, httpStatus_);
             }
-            if (((bitField0_ & 0x00000040) == 0x00000040)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(7, getCallerIpBytes());
+            if (!getCallerIpBytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, callerIp_);
             }
-            if (((bitField0_ & 0x00000080) == 0x00000080)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(8, getLocalIpBytes());
+            if (!getLocalIpBytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, localIp_);
             }
-            if (((bitField0_ & 0x00000100) == 0x00000100)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(9, getString1Bytes());
+            if (!getString1Bytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, string1_);
             }
-            if (((bitField0_ & 0x00000200) == 0x00000200)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(10, getString2Bytes());
+            if (!getString2Bytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, string2_);
             }
-            if (((bitField0_ & 0x00000400) == 0x00000400)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(11, getString3Bytes());
+            if (!getString3Bytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, string3_);
             }
-            if (((bitField0_ & 0x00000800) == 0x00000800)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(12, getString4Bytes());
+            if (!getString4Bytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, string4_);
             }
-            if (((bitField0_ & 0x00001000) == 0x00001000)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(13, getString5Bytes());
+            if (!getString5Bytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, string5_);
             }
-            if (((bitField0_ & 0x00002000) == 0x00002000)) {
+            if (isRedirectedUrl_ != false) {
                 size += com.google.protobuf.CodedOutputStream
                         .computeBoolSize(14, isRedirectedUrl_);
             }
-            size += getUnknownFields().getSerializedSize();
-            memoizedSerializedSize = size;
+            size += unknownFields.getSerializedSize();
+            memoizedSize = size;
             return size;
         }
 
-        private static final long serialVersionUID = 0L;
         @java.lang.Override
-        protected java.lang.Object writeReplace()
-                throws java.io.ObjectStreamException {
-            return super.writeReplace();
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord)) {
+                return super.equals(obj);
+            }
+            com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord other = (com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord) obj;
+
+            if (getProcessTime()
+                    != other.getProcessTime()) return false;
+            if (getPartitionTime()
+                    != other.getPartitionTime()) return false;
+            if (dataType_ != other.dataType_) return false;
+            if (!getUrl()
+                    .equals(other.getUrl())) return false;
+            if (getErrorCode()
+                    != other.getErrorCode()) return false;
+            if (getHttpStatus()
+                    != other.getHttpStatus()) return false;
+            if (!getCallerIp()
+                    .equals(other.getCallerIp())) return false;
+            if (!getLocalIp()
+                    .equals(other.getLocalIp())) return false;
+            if (!getString1()
+                    .equals(other.getString1())) return false;
+            if (!getString2()
+                    .equals(other.getString2())) return false;
+            if (!getString3()
+                    .equals(other.getString3())) return false;
+            if (!getString4()
+                    .equals(other.getString4())) return false;
+            if (!getString5()
+                    .equals(other.getString5())) return false;
+            if (getIsRedirectedUrl()
+                    != other.getIsRedirectedUrl()) return false;
+            if (!unknownFields.equals(other.unknownFields)) return false;
+            return true;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + PROCESS_TIME_FIELD_NUMBER;
+            hash = (53 * hash) + getProcessTime();
+            hash = (37 * hash) + PARTITION_TIME_FIELD_NUMBER;
+            hash = (53 * hash) + getPartitionTime();
+            hash = (37 * hash) + DATA_TYPE_FIELD_NUMBER;
+            hash = (53 * hash) + dataType_;
+            hash = (37 * hash) + URL_FIELD_NUMBER;
+            hash = (53 * hash) + getUrl().hashCode();
+            hash = (37 * hash) + ERROR_CODE_FIELD_NUMBER;
+            hash = (53 * hash) + getErrorCode();
+            hash = (37 * hash) + HTTP_STATUS_FIELD_NUMBER;
+            hash = (53 * hash) + getHttpStatus();
+            hash = (37 * hash) + CALLER_IP_FIELD_NUMBER;
+            hash = (53 * hash) + getCallerIp().hashCode();
+            hash = (37 * hash) + LOCAL_IP_FIELD_NUMBER;
+            hash = (53 * hash) + getLocalIp().hashCode();
+            hash = (37 * hash) + STRING1_FIELD_NUMBER;
+            hash = (53 * hash) + getString1().hashCode();
+            hash = (37 * hash) + STRING2_FIELD_NUMBER;
+            hash = (53 * hash) + getString2().hashCode();
+            hash = (37 * hash) + STRING3_FIELD_NUMBER;
+            hash = (53 * hash) + getString3().hashCode();
+            hash = (37 * hash) + STRING4_FIELD_NUMBER;
+            hash = (53 * hash) + getString4().hashCode();
+            hash = (37 * hash) + STRING5_FIELD_NUMBER;
+            hash = (53 * hash) + getString5().hashCode();
+            hash = (37 * hash) + IS_REDIRECTED_URL_FIELD_NUMBER;
+            hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+                    getIsRedirectedUrl());
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        public static com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
         }
 
         public static com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
-            return newBuilder().mergeFrom(data).buildParsed();
+            return PARSER.parseFrom(data);
         }
+
         public static com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
-            return newBuilder().mergeFrom(data, extensionRegistry)
-                    .buildParsed();
+            return PARSER.parseFrom(data, extensionRegistry);
         }
+
         public static com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
-            return newBuilder().mergeFrom(data).buildParsed();
+            return PARSER.parseFrom(data);
         }
+
         public static com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
-            return newBuilder().mergeFrom(data, extensionRegistry)
-                    .buildParsed();
+            return PARSER.parseFrom(data, extensionRegistry);
         }
+
         public static com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
-            return newBuilder().mergeFrom(input).buildParsed();
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
         }
+
         public static com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
-            return newBuilder().mergeFrom(input, extensionRegistry)
-                    .buildParsed();
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
         }
+
         public static com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
-            Builder builder = newBuilder();
-            if (builder.mergeDelimitedFrom(input)) {
-                return builder.buildParsed();
-            } else {
-                return null;
-            }
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
         }
+
         public static com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
-            Builder builder = newBuilder();
-            if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-                return builder.buildParsed();
-            } else {
-                return null;
-            }
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
+
         public static com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
-            return newBuilder().mergeFrom(input).buildParsed();
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
         }
+
         public static com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
-            return newBuilder().mergeFrom(input, extensionRegistry)
-                    .buildParsed();
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
         }
 
-        public static Builder newBuilder() { return Builder.create(); }
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder(com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord prototype) {
-            return newBuilder().mergeFrom(prototype);
+        @java.lang.Override
+        public Builder newBuilderForType() {
+            return newBuilder();
         }
-        public Builder toBuilder() { return newBuilder(this); }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        @java.lang.Override
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
 
         @java.lang.Override
         protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
+
+        /**
+         * <pre>
+         * 落地日志的数据格式
+         * </pre>
+         * <p>
+         * Protobuf type {@code com.tencent.attribution.flink.proto.gdt.HttpPingRecord}
+         */
         public static final class Builder extends
-                com.google.protobuf.GeneratedMessage.Builder<Builder>
-                implements com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecordOrBuilder {
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:com.tencent.attribution.flink.proto.gdt.HttpPingRecord)
+                com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecordOrBuilder {
             public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
                 return com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_descriptor;
             }
 
-            protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            @java.lang.Override
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-                return com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_fieldAccessorTable;
+                return com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord.class, com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord.Builder.class);
             }
 
             // Construct using com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord.newBuilder()
@@ -783,64 +1538,64 @@ public final class GDTHttpPingService {
                 maybeForceBuilderInitialization();
             }
 
-            private Builder(BuilderParent parent) {
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
+
             private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
                 }
             }
-            private static Builder create() {
-                return new Builder();
-            }
 
+            @java.lang.Override
             public Builder clear() {
                 super.clear();
                 processTime_ = 0;
-                bitField0_ = (bitField0_ & ~0x00000001);
+
                 partitionTime_ = 0;
-                bitField0_ = (bitField0_ & ~0x00000002);
-                dataType_ = com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType.UNKNOWN;
-                bitField0_ = (bitField0_ & ~0x00000004);
+
+                dataType_ = 0;
+
                 url_ = "";
-                bitField0_ = (bitField0_ & ~0x00000008);
+
                 errorCode_ = 0;
-                bitField0_ = (bitField0_ & ~0x00000010);
+
                 httpStatus_ = 0;
-                bitField0_ = (bitField0_ & ~0x00000020);
+
                 callerIp_ = "";
-                bitField0_ = (bitField0_ & ~0x00000040);
+
                 localIp_ = "";
-                bitField0_ = (bitField0_ & ~0x00000080);
+
                 string1_ = "";
-                bitField0_ = (bitField0_ & ~0x00000100);
+
                 string2_ = "";
-                bitField0_ = (bitField0_ & ~0x00000200);
+
                 string3_ = "";
-                bitField0_ = (bitField0_ & ~0x00000400);
+
                 string4_ = "";
-                bitField0_ = (bitField0_ & ~0x00000800);
+
                 string5_ = "";
-                bitField0_ = (bitField0_ & ~0x00001000);
+
                 isRedirectedUrl_ = false;
-                bitField0_ = (bitField0_ & ~0x00002000);
+
                 return this;
             }
 
-            public Builder clone() {
-                return create().mergeFrom(buildPartial());
-            }
-
+            @java.lang.Override
             public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-                return com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord.getDescriptor();
+                return com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_descriptor;
             }
 
+            @java.lang.Override
             public com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord getDefaultInstanceForType() {
                 return com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord.getDefaultInstance();
             }
 
+            @java.lang.Override
             public com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord build() {
                 com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord result = buildPartial();
                 if (!result.isInitialized()) {
@@ -849,84 +1604,69 @@ public final class GDTHttpPingService {
                 return result;
             }
 
-            private com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord buildParsed()
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(
-                            result).asInvalidProtocolBufferException();
-                }
-                return result;
-            }
-
+            @java.lang.Override
             public com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord buildPartial() {
                 com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord result = new com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord(this);
-                int from_bitField0_ = bitField0_;
-                int to_bitField0_ = 0;
-                if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-                    to_bitField0_ |= 0x00000001;
-                }
                 result.processTime_ = processTime_;
-                if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-                    to_bitField0_ |= 0x00000002;
-                }
                 result.partitionTime_ = partitionTime_;
-                if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-                    to_bitField0_ |= 0x00000004;
-                }
                 result.dataType_ = dataType_;
-                if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-                    to_bitField0_ |= 0x00000008;
-                }
                 result.url_ = url_;
-                if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-                    to_bitField0_ |= 0x00000010;
-                }
                 result.errorCode_ = errorCode_;
-                if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-                    to_bitField0_ |= 0x00000020;
-                }
                 result.httpStatus_ = httpStatus_;
-                if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-                    to_bitField0_ |= 0x00000040;
-                }
                 result.callerIp_ = callerIp_;
-                if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
-                    to_bitField0_ |= 0x00000080;
-                }
                 result.localIp_ = localIp_;
-                if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
-                    to_bitField0_ |= 0x00000100;
-                }
                 result.string1_ = string1_;
-                if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
-                    to_bitField0_ |= 0x00000200;
-                }
                 result.string2_ = string2_;
-                if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
-                    to_bitField0_ |= 0x00000400;
-                }
                 result.string3_ = string3_;
-                if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
-                    to_bitField0_ |= 0x00000800;
-                }
                 result.string4_ = string4_;
-                if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
-                    to_bitField0_ |= 0x00001000;
-                }
                 result.string5_ = string5_;
-                if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
-                    to_bitField0_ |= 0x00002000;
-                }
                 result.isRedirectedUrl_ = isRedirectedUrl_;
-                result.bitField0_ = to_bitField0_;
                 onBuilt();
                 return result;
             }
 
+            @java.lang.Override
+            public Builder clone() {
+                return super.clone();
+            }
+
+            @java.lang.Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.setField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return super.clearField(field);
+            }
+
+            @java.lang.Override
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return super.clearOneof(oneof);
+            }
+
+            @java.lang.Override
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, java.lang.Object value) {
+                return super.setRepeatedField(field, index, value);
+            }
+
+            @java.lang.Override
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.addRepeatedField(field, value);
+            }
+
+            @java.lang.Override
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord) {
-                    return mergeFrom((com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord)other);
+                    return mergeFrom((com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -934,602 +1674,1050 @@ public final class GDTHttpPingService {
             }
 
             public Builder mergeFrom(com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord other) {
-                if (other == com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord.getDefaultInstance()) return this;
-                if (other.hasProcessTime()) {
+                if (other == com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord.getDefaultInstance())
+                    return this;
+                if (other.getProcessTime() != 0) {
                     setProcessTime(other.getProcessTime());
                 }
-                if (other.hasPartitionTime()) {
+                if (other.getPartitionTime() != 0) {
                     setPartitionTime(other.getPartitionTime());
                 }
-                if (other.hasDataType()) {
-                    setDataType(other.getDataType());
+                if (other.dataType_ != 0) {
+                    setDataTypeValue(other.getDataTypeValue());
                 }
-                if (other.hasUrl()) {
-                    setUrl(other.getUrl());
+                if (!other.getUrl().isEmpty()) {
+                    url_ = other.url_;
+                    onChanged();
                 }
-                if (other.hasErrorCode()) {
+                if (other.getErrorCode() != 0) {
                     setErrorCode(other.getErrorCode());
                 }
-                if (other.hasHttpStatus()) {
+                if (other.getHttpStatus() != 0) {
                     setHttpStatus(other.getHttpStatus());
                 }
-                if (other.hasCallerIp()) {
-                    setCallerIp(other.getCallerIp());
+                if (!other.getCallerIp().isEmpty()) {
+                    callerIp_ = other.callerIp_;
+                    onChanged();
                 }
-                if (other.hasLocalIp()) {
-                    setLocalIp(other.getLocalIp());
+                if (!other.getLocalIp().isEmpty()) {
+                    localIp_ = other.localIp_;
+                    onChanged();
                 }
-                if (other.hasString1()) {
-                    setString1(other.getString1());
+                if (!other.getString1().isEmpty()) {
+                    string1_ = other.string1_;
+                    onChanged();
                 }
-                if (other.hasString2()) {
-                    setString2(other.getString2());
+                if (!other.getString2().isEmpty()) {
+                    string2_ = other.string2_;
+                    onChanged();
                 }
-                if (other.hasString3()) {
-                    setString3(other.getString3());
+                if (!other.getString3().isEmpty()) {
+                    string3_ = other.string3_;
+                    onChanged();
                 }
-                if (other.hasString4()) {
-                    setString4(other.getString4());
+                if (!other.getString4().isEmpty()) {
+                    string4_ = other.string4_;
+                    onChanged();
                 }
-                if (other.hasString5()) {
-                    setString5(other.getString5());
+                if (!other.getString5().isEmpty()) {
+                    string5_ = other.string5_;
+                    onChanged();
                 }
-                if (other.hasIsRedirectedUrl()) {
+                if (other.getIsRedirectedUrl() != false) {
                     setIsRedirectedUrl(other.getIsRedirectedUrl());
                 }
-                this.mergeUnknownFields(other.getUnknownFields());
+                this.mergeUnknownFields(other.unknownFields);
+                onChanged();
                 return this;
             }
 
+            @java.lang.Override
             public final boolean isInitialized() {
                 return true;
             }
 
+            @java.lang.Override
             public Builder mergeFrom(
                     com.google.protobuf.CodedInputStream input,
                     com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                     throws java.io.IOException {
-                com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                        com.google.protobuf.UnknownFieldSet.newBuilder(
-                                this.getUnknownFields());
-                while (true) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            this.setUnknownFields(unknownFields.build());
-                            onChanged();
-                            return this;
-                        default: {
-                            if (!parseUnknownField(input, unknownFields,
-                                    extensionRegistry, tag)) {
-                                this.setUnknownFields(unknownFields.build());
-                                onChanged();
-                                return this;
-                            }
-                            break;
-                        }
-                        case 8: {
-                            bitField0_ |= 0x00000001;
-                            processTime_ = input.readUInt32();
-                            break;
-                        }
-                        case 16: {
-                            bitField0_ |= 0x00000002;
-                            partitionTime_ = input.readUInt32();
-                            break;
-                        }
-                        case 24: {
-                            int rawValue = input.readEnum();
-                            com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType value = com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType.valueOf(rawValue);
-                            if (value == null) {
-                                unknownFields.mergeVarintField(3, rawValue);
-                            } else {
-                                bitField0_ |= 0x00000004;
-                                dataType_ = value;
-                            }
-                            break;
-                        }
-                        case 34: {
-                            bitField0_ |= 0x00000008;
-                            url_ = input.readBytes();
-                            break;
-                        }
-                        case 40: {
-                            bitField0_ |= 0x00000010;
-                            errorCode_ = input.readUInt32();
-                            break;
-                        }
-                        case 48: {
-                            bitField0_ |= 0x00000020;
-                            httpStatus_ = input.readUInt32();
-                            break;
-                        }
-                        case 58: {
-                            bitField0_ |= 0x00000040;
-                            callerIp_ = input.readBytes();
-                            break;
-                        }
-                        case 66: {
-                            bitField0_ |= 0x00000080;
-                            localIp_ = input.readBytes();
-                            break;
-                        }
-                        case 74: {
-                            bitField0_ |= 0x00000100;
-                            string1_ = input.readBytes();
-                            break;
-                        }
-                        case 82: {
-                            bitField0_ |= 0x00000200;
-                            string2_ = input.readBytes();
-                            break;
-                        }
-                        case 90: {
-                            bitField0_ |= 0x00000400;
-                            string3_ = input.readBytes();
-                            break;
-                        }
-                        case 98: {
-                            bitField0_ |= 0x00000800;
-                            string4_ = input.readBytes();
-                            break;
-                        }
-                        case 106: {
-                            bitField0_ |= 0x00001000;
-                            string5_ = input.readBytes();
-                            break;
-                        }
-                        case 112: {
-                            bitField0_ |= 0x00002000;
-                            isRedirectedUrl_ = input.readBool();
-                            break;
-                        }
+                com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
                     }
                 }
+                return this;
             }
 
-            private int bitField0_;
+            private int processTime_;
 
-            // optional uint32 process_time = 1;
-            private int processTime_ ;
-            public boolean hasProcessTime() {
-                return ((bitField0_ & 0x00000001) == 0x00000001);
-            }
+            /**
+             * <pre>
+             * 上报时unix时间戳
+             * </pre>
+             *
+             * <code>uint32 process_time = 1;</code>
+             */
             public int getProcessTime() {
                 return processTime_;
             }
+
+            /**
+             * <pre>
+             * 上报时unix时间戳
+             * </pre>
+             *
+             * <code>uint32 process_time = 1;</code>
+             */
             public Builder setProcessTime(int value) {
-                bitField0_ |= 0x00000001;
+
                 processTime_ = value;
                 onChanged();
                 return this;
             }
+
+            /**
+             * <pre>
+             * 上报时unix时间戳
+             * </pre>
+             *
+             * <code>uint32 process_time = 1;</code>
+             */
             public Builder clearProcessTime() {
-                bitField0_ = (bitField0_ & ~0x00000001);
+
                 processTime_ = 0;
                 onChanged();
                 return this;
             }
 
-            // optional uint32 partition_time = 2;
-            private int partitionTime_ ;
-            public boolean hasPartitionTime() {
-                return ((bitField0_ & 0x00000002) == 0x00000002);
-            }
+            private int partitionTime_;
+
+            /**
+             * <pre>
+             * 分区时间YYYYMMDDHH，由process_time转换来
+             * </pre>
+             *
+             * <code>uint32 partition_time = 2;</code>
+             */
             public int getPartitionTime() {
                 return partitionTime_;
             }
+
+            /**
+             * <pre>
+             * 分区时间YYYYMMDDHH，由process_time转换来
+             * </pre>
+             *
+             * <code>uint32 partition_time = 2;</code>
+             */
             public Builder setPartitionTime(int value) {
-                bitField0_ |= 0x00000002;
+
                 partitionTime_ = value;
                 onChanged();
                 return this;
             }
+
+            /**
+             * <pre>
+             * 分区时间YYYYMMDDHH，由process_time转换来
+             * </pre>
+             *
+             * <code>uint32 partition_time = 2;</code>
+             */
             public Builder clearPartitionTime() {
-                bitField0_ = (bitField0_ & ~0x00000002);
+
                 partitionTime_ = 0;
                 onChanged();
                 return this;
             }
 
-            // optional .com.tencent.attribution.flink.proto.gdt.HttpPingDataType data_type = 3;
-            private com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType dataType_ = com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType.UNKNOWN;
-            public boolean hasDataType() {
-                return ((bitField0_ & 0x00000004) == 0x00000004);
-            }
-            public com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType getDataType() {
+            private int dataType_ = 0;
+
+            /**
+             * <code>.com.tencent.attribution.flink.proto.gdt.HttpPingDataType data_type = 3;</code>
+             */
+            public int getDataTypeValue() {
                 return dataType_;
             }
-            public Builder setDataType(com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000004;
+
+            /**
+             * <code>.com.tencent.attribution.flink.proto.gdt.HttpPingDataType data_type = 3;</code>
+             */
+            public Builder setDataTypeValue(int value) {
                 dataType_ = value;
                 onChanged();
                 return this;
             }
-            public Builder clearDataType() {
-                bitField0_ = (bitField0_ & ~0x00000004);
-                dataType_ = com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType.UNKNOWN;
+
+            /**
+             * <code>.com.tencent.attribution.flink.proto.gdt.HttpPingDataType data_type = 3;</code>
+             */
+            public com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType getDataType() {
+                @SuppressWarnings("deprecation")
+                com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType result = com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType.valueOf(dataType_);
+                return result == null ? com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType.UNRECOGNIZED : result;
+            }
+
+            /**
+             * <code>.com.tencent.attribution.flink.proto.gdt.HttpPingDataType data_type = 3;</code>
+             */
+            public Builder setDataType(com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingDataType value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                dataType_ = value.getNumber();
                 onChanged();
                 return this;
             }
 
-            // optional string url = 4;
-            private java.lang.Object url_ = "";
-            public boolean hasUrl() {
-                return ((bitField0_ & 0x00000008) == 0x00000008);
+            /**
+             * <code>.com.tencent.attribution.flink.proto.gdt.HttpPingDataType data_type = 3;</code>
+             */
+            public Builder clearDataType() {
+
+                dataType_ = 0;
+                onChanged();
+                return this;
             }
-            public String getUrl() {
+
+            private java.lang.Object url_ = "";
+
+            /**
+             * <code>string url = 4;</code>
+             */
+            public java.lang.String getUrl() {
                 java.lang.Object ref = url_;
-                if (!(ref instanceof String)) {
-                    String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
                     url_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
-            public Builder setUrl(String value) {
+
+            /**
+             * <code>string url = 4;</code>
+             */
+            public com.google.protobuf.ByteString
+            getUrlBytes() {
+                java.lang.Object ref = url_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    url_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string url = 4;</code>
+             */
+            public Builder setUrl(
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
-                bitField0_ |= 0x00000008;
+
                 url_ = value;
                 onChanged();
                 return this;
             }
+
+            /**
+             * <code>string url = 4;</code>
+             */
             public Builder clearUrl() {
-                bitField0_ = (bitField0_ & ~0x00000008);
+
                 url_ = getDefaultInstance().getUrl();
                 onChanged();
                 return this;
             }
-            void setUrl(com.google.protobuf.ByteString value) {
-                bitField0_ |= 0x00000008;
+
+            /**
+             * <code>string url = 4;</code>
+             */
+            public Builder setUrlBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+
                 url_ = value;
                 onChanged();
+                return this;
             }
 
-            // optional uint32 error_code = 5;
-            private int errorCode_ ;
-            public boolean hasErrorCode() {
-                return ((bitField0_ & 0x00000010) == 0x00000010);
-            }
+            private int errorCode_;
+
+            /**
+             * <pre>
+             * http_client错误码
+             * </pre>
+             *
+             * <code>uint32 error_code = 5;</code>
+             */
             public int getErrorCode() {
                 return errorCode_;
             }
+
+            /**
+             * <pre>
+             * http_client错误码
+             * </pre>
+             *
+             * <code>uint32 error_code = 5;</code>
+             */
             public Builder setErrorCode(int value) {
-                bitField0_ |= 0x00000010;
+
                 errorCode_ = value;
                 onChanged();
                 return this;
             }
+
+            /**
+             * <pre>
+             * http_client错误码
+             * </pre>
+             *
+             * <code>uint32 error_code = 5;</code>
+             */
             public Builder clearErrorCode() {
-                bitField0_ = (bitField0_ & ~0x00000010);
+
                 errorCode_ = 0;
                 onChanged();
                 return this;
             }
 
-            // optional uint32 http_status = 6;
-            private int httpStatus_ ;
-            public boolean hasHttpStatus() {
-                return ((bitField0_ & 0x00000020) == 0x00000020);
-            }
+            private int httpStatus_;
+
+            /**
+             * <pre>
+             * HTTP响应状态码
+             * </pre>
+             *
+             * <code>uint32 http_status = 6;</code>
+             */
             public int getHttpStatus() {
                 return httpStatus_;
             }
+
+            /**
+             * <pre>
+             * HTTP响应状态码
+             * </pre>
+             *
+             * <code>uint32 http_status = 6;</code>
+             */
             public Builder setHttpStatus(int value) {
-                bitField0_ |= 0x00000020;
+
                 httpStatus_ = value;
                 onChanged();
                 return this;
             }
+
+            /**
+             * <pre>
+             * HTTP响应状态码
+             * </pre>
+             *
+             * <code>uint32 http_status = 6;</code>
+             */
             public Builder clearHttpStatus() {
-                bitField0_ = (bitField0_ & ~0x00000020);
+
                 httpStatus_ = 0;
                 onChanged();
                 return this;
             }
 
-            // optional string caller_ip = 7;
             private java.lang.Object callerIp_ = "";
-            public boolean hasCallerIp() {
-                return ((bitField0_ & 0x00000040) == 0x00000040);
-            }
-            public String getCallerIp() {
+
+            /**
+             * <pre>
+             * 向http_ping发请求的机器ip(Dot-decimal notation)
+             * </pre>
+             *
+             * <code>string caller_ip = 7;</code>
+             */
+            public java.lang.String getCallerIp() {
                 java.lang.Object ref = callerIp_;
-                if (!(ref instanceof String)) {
-                    String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
                     callerIp_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
-            public Builder setCallerIp(String value) {
+
+            /**
+             * <pre>
+             * 向http_ping发请求的机器ip(Dot-decimal notation)
+             * </pre>
+             *
+             * <code>string caller_ip = 7;</code>
+             */
+            public com.google.protobuf.ByteString
+            getCallerIpBytes() {
+                java.lang.Object ref = callerIp_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    callerIp_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <pre>
+             * 向http_ping发请求的机器ip(Dot-decimal notation)
+             * </pre>
+             *
+             * <code>string caller_ip = 7;</code>
+             */
+            public Builder setCallerIp(
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
-                bitField0_ |= 0x00000040;
+
                 callerIp_ = value;
                 onChanged();
                 return this;
             }
+
+            /**
+             * <pre>
+             * 向http_ping发请求的机器ip(Dot-decimal notation)
+             * </pre>
+             *
+             * <code>string caller_ip = 7;</code>
+             */
             public Builder clearCallerIp() {
-                bitField0_ = (bitField0_ & ~0x00000040);
+
                 callerIp_ = getDefaultInstance().getCallerIp();
                 onChanged();
                 return this;
             }
-            void setCallerIp(com.google.protobuf.ByteString value) {
-                bitField0_ |= 0x00000040;
-                callerIp_ = value;
-                onChanged();
-            }
 
-            // optional string local_ip = 8;
-            private java.lang.Object localIp_ = "";
-            public boolean hasLocalIp() {
-                return ((bitField0_ & 0x00000080) == 0x00000080);
-            }
-            public String getLocalIp() {
-                java.lang.Object ref = localIp_;
-                if (!(ref instanceof String)) {
-                    String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-                    localIp_ = s;
-                    return s;
-                } else {
-                    return (String) ref;
-                }
-            }
-            public Builder setLocalIp(String value) {
+            /**
+             * <pre>
+             * 向http_ping发请求的机器ip(Dot-decimal notation)
+             * </pre>
+             *
+             * <code>string caller_ip = 7;</code>
+             */
+            public Builder setCallerIpBytes(
+                    com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
-                bitField0_ |= 0x00000080;
+                checkByteStringIsUtf8(value);
+
+                callerIp_ = value;
+                onChanged();
+                return this;
+            }
+
+            private java.lang.Object localIp_ = "";
+
+            /**
+             * <pre>
+             * http_ping本机ip(Dot-decimal notation)
+             * </pre>
+             *
+             * <code>string local_ip = 8;</code>
+             */
+            public java.lang.String getLocalIp() {
+                java.lang.Object ref = localIp_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    localIp_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <pre>
+             * http_ping本机ip(Dot-decimal notation)
+             * </pre>
+             *
+             * <code>string local_ip = 8;</code>
+             */
+            public com.google.protobuf.ByteString
+            getLocalIpBytes() {
+                java.lang.Object ref = localIp_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    localIp_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <pre>
+             * http_ping本机ip(Dot-decimal notation)
+             * </pre>
+             *
+             * <code>string local_ip = 8;</code>
+             */
+            public Builder setLocalIp(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
                 localIp_ = value;
                 onChanged();
                 return this;
             }
+
+            /**
+             * <pre>
+             * http_ping本机ip(Dot-decimal notation)
+             * </pre>
+             *
+             * <code>string local_ip = 8;</code>
+             */
             public Builder clearLocalIp() {
-                bitField0_ = (bitField0_ & ~0x00000080);
+
                 localIp_ = getDefaultInstance().getLocalIp();
                 onChanged();
                 return this;
             }
-            void setLocalIp(com.google.protobuf.ByteString value) {
-                bitField0_ |= 0x00000080;
-                localIp_ = value;
-                onChanged();
-            }
 
-            // optional string string1 = 9;
-            private java.lang.Object string1_ = "";
-            public boolean hasString1() {
-                return ((bitField0_ & 0x00000100) == 0x00000100);
-            }
-            public String getString1() {
-                java.lang.Object ref = string1_;
-                if (!(ref instanceof String)) {
-                    String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-                    string1_ = s;
-                    return s;
-                } else {
-                    return (String) ref;
-                }
-            }
-            public Builder setString1(String value) {
+            /**
+             * <pre>
+             * http_ping本机ip(Dot-decimal notation)
+             * </pre>
+             *
+             * <code>string local_ip = 8;</code>
+             */
+            public Builder setLocalIpBytes(
+                    com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
-                bitField0_ |= 0x00000100;
+                checkByteStringIsUtf8(value);
+
+                localIp_ = value;
+                onChanged();
+                return this;
+            }
+
+            private java.lang.Object string1_ = "";
+
+            /**
+             * <pre>
+             * string1-5拷贝自HttpPingRequest.url_infos.business_info中相应的字段
+             * </pre>
+             *
+             * <code>string string1 = 9;</code>
+             */
+            public java.lang.String getString1() {
+                java.lang.Object ref = string1_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    string1_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <pre>
+             * string1-5拷贝自HttpPingRequest.url_infos.business_info中相应的字段
+             * </pre>
+             *
+             * <code>string string1 = 9;</code>
+             */
+            public com.google.protobuf.ByteString
+            getString1Bytes() {
+                java.lang.Object ref = string1_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    string1_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <pre>
+             * string1-5拷贝自HttpPingRequest.url_infos.business_info中相应的字段
+             * </pre>
+             *
+             * <code>string string1 = 9;</code>
+             */
+            public Builder setString1(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
                 string1_ = value;
                 onChanged();
                 return this;
             }
+
+            /**
+             * <pre>
+             * string1-5拷贝自HttpPingRequest.url_infos.business_info中相应的字段
+             * </pre>
+             *
+             * <code>string string1 = 9;</code>
+             */
             public Builder clearString1() {
-                bitField0_ = (bitField0_ & ~0x00000100);
+
                 string1_ = getDefaultInstance().getString1();
                 onChanged();
                 return this;
             }
-            void setString1(com.google.protobuf.ByteString value) {
-                bitField0_ |= 0x00000100;
-                string1_ = value;
-                onChanged();
-            }
 
-            // optional string string2 = 10;
-            private java.lang.Object string2_ = "";
-            public boolean hasString2() {
-                return ((bitField0_ & 0x00000200) == 0x00000200);
-            }
-            public String getString2() {
-                java.lang.Object ref = string2_;
-                if (!(ref instanceof String)) {
-                    String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-                    string2_ = s;
-                    return s;
-                } else {
-                    return (String) ref;
-                }
-            }
-            public Builder setString2(String value) {
+            /**
+             * <pre>
+             * string1-5拷贝自HttpPingRequest.url_infos.business_info中相应的字段
+             * </pre>
+             *
+             * <code>string string1 = 9;</code>
+             */
+            public Builder setString1Bytes(
+                    com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
-                bitField0_ |= 0x00000200;
+                checkByteStringIsUtf8(value);
+
+                string1_ = value;
+                onChanged();
+                return this;
+            }
+
+            private java.lang.Object string2_ = "";
+
+            /**
+             * <code>string string2 = 10;</code>
+             */
+            public java.lang.String getString2() {
+                java.lang.Object ref = string2_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    string2_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string string2 = 10;</code>
+             */
+            public com.google.protobuf.ByteString
+            getString2Bytes() {
+                java.lang.Object ref = string2_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    string2_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string string2 = 10;</code>
+             */
+            public Builder setString2(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
                 string2_ = value;
                 onChanged();
                 return this;
             }
+
+            /**
+             * <code>string string2 = 10;</code>
+             */
             public Builder clearString2() {
-                bitField0_ = (bitField0_ & ~0x00000200);
+
                 string2_ = getDefaultInstance().getString2();
                 onChanged();
                 return this;
             }
-            void setString2(com.google.protobuf.ByteString value) {
-                bitField0_ |= 0x00000200;
-                string2_ = value;
-                onChanged();
-            }
 
-            // optional string string3 = 11;
-            private java.lang.Object string3_ = "";
-            public boolean hasString3() {
-                return ((bitField0_ & 0x00000400) == 0x00000400);
-            }
-            public String getString3() {
-                java.lang.Object ref = string3_;
-                if (!(ref instanceof String)) {
-                    String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-                    string3_ = s;
-                    return s;
-                } else {
-                    return (String) ref;
-                }
-            }
-            public Builder setString3(String value) {
+            /**
+             * <code>string string2 = 10;</code>
+             */
+            public Builder setString2Bytes(
+                    com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
-                bitField0_ |= 0x00000400;
+                checkByteStringIsUtf8(value);
+
+                string2_ = value;
+                onChanged();
+                return this;
+            }
+
+            private java.lang.Object string3_ = "";
+
+            /**
+             * <code>string string3 = 11;</code>
+             */
+            public java.lang.String getString3() {
+                java.lang.Object ref = string3_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    string3_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string string3 = 11;</code>
+             */
+            public com.google.protobuf.ByteString
+            getString3Bytes() {
+                java.lang.Object ref = string3_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    string3_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string string3 = 11;</code>
+             */
+            public Builder setString3(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
                 string3_ = value;
                 onChanged();
                 return this;
             }
+
+            /**
+             * <code>string string3 = 11;</code>
+             */
             public Builder clearString3() {
-                bitField0_ = (bitField0_ & ~0x00000400);
+
                 string3_ = getDefaultInstance().getString3();
                 onChanged();
                 return this;
             }
-            void setString3(com.google.protobuf.ByteString value) {
-                bitField0_ |= 0x00000400;
-                string3_ = value;
-                onChanged();
-            }
 
-            // optional string string4 = 12;
-            private java.lang.Object string4_ = "";
-            public boolean hasString4() {
-                return ((bitField0_ & 0x00000800) == 0x00000800);
-            }
-            public String getString4() {
-                java.lang.Object ref = string4_;
-                if (!(ref instanceof String)) {
-                    String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-                    string4_ = s;
-                    return s;
-                } else {
-                    return (String) ref;
-                }
-            }
-            public Builder setString4(String value) {
+            /**
+             * <code>string string3 = 11;</code>
+             */
+            public Builder setString3Bytes(
+                    com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
-                bitField0_ |= 0x00000800;
+                checkByteStringIsUtf8(value);
+
+                string3_ = value;
+                onChanged();
+                return this;
+            }
+
+            private java.lang.Object string4_ = "";
+
+            /**
+             * <code>string string4 = 12;</code>
+             */
+            public java.lang.String getString4() {
+                java.lang.Object ref = string4_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    string4_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string string4 = 12;</code>
+             */
+            public com.google.protobuf.ByteString
+            getString4Bytes() {
+                java.lang.Object ref = string4_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    string4_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string string4 = 12;</code>
+             */
+            public Builder setString4(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
                 string4_ = value;
                 onChanged();
                 return this;
             }
+
+            /**
+             * <code>string string4 = 12;</code>
+             */
             public Builder clearString4() {
-                bitField0_ = (bitField0_ & ~0x00000800);
+
                 string4_ = getDefaultInstance().getString4();
                 onChanged();
                 return this;
             }
-            void setString4(com.google.protobuf.ByteString value) {
-                bitField0_ |= 0x00000800;
-                string4_ = value;
-                onChanged();
-            }
 
-            // optional string string5 = 13;
-            private java.lang.Object string5_ = "";
-            public boolean hasString5() {
-                return ((bitField0_ & 0x00001000) == 0x00001000);
-            }
-            public String getString5() {
-                java.lang.Object ref = string5_;
-                if (!(ref instanceof String)) {
-                    String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-                    string5_ = s;
-                    return s;
-                } else {
-                    return (String) ref;
-                }
-            }
-            public Builder setString5(String value) {
+            /**
+             * <code>string string4 = 12;</code>
+             */
+            public Builder setString4Bytes(
+                    com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
-                bitField0_ |= 0x00001000;
+                checkByteStringIsUtf8(value);
+
+                string4_ = value;
+                onChanged();
+                return this;
+            }
+
+            private java.lang.Object string5_ = "";
+
+            /**
+             * <code>string string5 = 13;</code>
+             */
+            public java.lang.String getString5() {
+                java.lang.Object ref = string5_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    string5_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string string5 = 13;</code>
+             */
+            public com.google.protobuf.ByteString
+            getString5Bytes() {
+                java.lang.Object ref = string5_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    string5_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string string5 = 13;</code>
+             */
+            public Builder setString5(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
                 string5_ = value;
                 onChanged();
                 return this;
             }
+
+            /**
+             * <code>string string5 = 13;</code>
+             */
             public Builder clearString5() {
-                bitField0_ = (bitField0_ & ~0x00001000);
+
                 string5_ = getDefaultInstance().getString5();
                 onChanged();
                 return this;
             }
-            void setString5(com.google.protobuf.ByteString value) {
-                bitField0_ |= 0x00001000;
+
+            /**
+             * <code>string string5 = 13;</code>
+             */
+            public Builder setString5Bytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+
                 string5_ = value;
                 onChanged();
+                return this;
             }
 
-            // optional bool is_redirected_url = 14;
-            private boolean isRedirectedUrl_ ;
-            public boolean hasIsRedirectedUrl() {
-                return ((bitField0_ & 0x00002000) == 0x00002000);
-            }
+            private boolean isRedirectedUrl_;
+
+            /**
+             * <code>bool is_redirected_url = 14;</code>
+             */
             public boolean getIsRedirectedUrl() {
                 return isRedirectedUrl_;
             }
+
+            /**
+             * <code>bool is_redirected_url = 14;</code>
+             */
             public Builder setIsRedirectedUrl(boolean value) {
-                bitField0_ |= 0x00002000;
+
                 isRedirectedUrl_ = value;
                 onChanged();
                 return this;
             }
+
+            /**
+             * <code>bool is_redirected_url = 14;</code>
+             */
             public Builder clearIsRedirectedUrl() {
-                bitField0_ = (bitField0_ & ~0x00002000);
+
                 isRedirectedUrl_ = false;
                 onChanged();
                 return this;
             }
 
+            @java.lang.Override
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFields(unknownFields);
+            }
+
+            @java.lang.Override
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
+
+
             // @@protoc_insertion_point(builder_scope:com.tencent.attribution.flink.proto.gdt.HttpPingRecord)
         }
 
+        // @@protoc_insertion_point(class_scope:com.tencent.attribution.flink.proto.gdt.HttpPingRecord)
+        private static final com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord DEFAULT_INSTANCE;
+
         static {
-            defaultInstance = new HttpPingRecord(true);
-            defaultInstance.initFields();
+            DEFAULT_INSTANCE = new com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord();
         }
 
-        // @@protoc_insertion_point(class_scope:com.tencent.attribution.flink.proto.gdt.HttpPingRecord)
+        public static com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<HttpPingRecord>
+                PARSER = new com.google.protobuf.AbstractParser<HttpPingRecord>() {
+            @java.lang.Override
+            public HttpPingRecord parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new HttpPingRecord(input, extensionRegistry);
+            }
+        };
+
+        public static com.google.protobuf.Parser<HttpPingRecord> parser() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<HttpPingRecord> getParserForType() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
     }
 
-    private static com.google.protobuf.Descriptors.Descriptor
+    private static final com.google.protobuf.Descriptors.Descriptor
             internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_descriptor;
-    private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_fieldAccessorTable;
 
     public static com.google.protobuf.Descriptors.FileDescriptor
     getDescriptor() {
         return descriptor;
     }
+
     private static com.google.protobuf.Descriptors.FileDescriptor
             descriptor;
+
     static {
         java.lang.String[] descriptorData = {
                 "\n\017http_ping.proto\022\'com.tencent.attributi" +
@@ -1541,8 +2729,8 @@ public final class GDTHttpPingService {
                         "tp_status\030\006 \001(\r\022\021\n\tcaller_ip\030\007 \001(\t\022\020\n\010lo" +
                         "cal_ip\030\010 \001(\t\022\017\n\007string1\030\t \001(\t\022\017\n\007string2" +
                         "\030\n \001(\t\022\017\n\007string3\030\013 \001(\t\022\017\n\007string4\030\014 \001(\t" +
-                        "\022\017\n\007string5\030\r \001(\t\022\031\n\021is_redirected_url\030\016",
-                " \001(\010*\223\005\n\020HttpPingDataType\022\013\n\007UNKNOWN\020\000\022#" +
+                        "\022\017\n\007string5\030\r \001(\t\022\031\n\021is_redirected_url\030\016" +
+                        " \001(\010*\223\005\n\020HttpPingDataType\022\013\n\007UNKNOWN\020\000\022#" +
                         "\n\037GDT_EXPOSURE_THIRDPARTY_MONITOR\020\001\022\034\n\030G" +
                         "DT_EXPOSURE_DSP_MONITOR\020\002\022&\n\"WECHAT_EXPO" +
                         "SURE_THIRDPARTY_MONITOR\020\003\022\037\n\033WECHAT_EXPO" +
@@ -1551,36 +2739,26 @@ public final class GDTHttpPingService {
                         "TOR\020\006\022\034\n\030CLICK_THIRDPARTY_MONITOR\020\007\022\'\n#E" +
                         "XPOSURE_THIRDPARTY_MONITOR_FOR_ADX\020\010\022\027\n\023" +
                         "CLICK_DISPATCH_REDO\020\t\022\026\n\022CLICK_LANDING_P" +
-                        "AGE\020\n\022\025\n\021CLICK_TRACKING_JD\020\013\022\025\n\021CLICK_TR",
-                "ACKING_58\020\014\022\"\n\036CLICK_DSP_FOR_TRACE_COLLE" +
+                        "AGE\020\n\022\025\n\021CLICK_TRACKING_JD\020\013\022\025\n\021CLICK_TR" +
+                        "ACKING_58\020\014\022\"\n\036CLICK_DSP_FOR_TRACE_COLLE" +
                         "CTION\020\r\022\025\n\021TRACE_DSP_MONITOR\020\016\022\033\n\027DISPAT" +
                         "CH_FOR_ADPLATFORM\020\017\022\024\n\020DISPATCH_FOR_DSP\020" +
                         "\020\022!\n\034CLICK_FOR_THIRDPARTY_MONITOR\020\201\002\022#\n\036" +
                         "CLICK_FOR_MOBILEAPP_ACTIVITION\020\202\002\022+\n&EXP" +
                         "OSURE_FOR_WECHAT_THIRDPARTY_MONITOR\020\201\004\022\032" +
                         "\n\025WECHAT_TRACE_DISPATCH\020\202\004B\032B\022GDTHttpPin" +
-                        "gService\200\001\001\210\001\001"
+                        "gService\200\001\001\210\001\001b\006proto3"
         };
-        com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-                new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-                    public com.google.protobuf.ExtensionRegistry assignDescriptors(
-                            com.google.protobuf.Descriptors.FileDescriptor root) {
-                        descriptor = root;
-                        internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_descriptor =
-                                getDescriptor().getMessageTypes().get(0);
-                        internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_fieldAccessorTable = new
-                                com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-                                internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_descriptor,
-                                new java.lang.String[] { "ProcessTime", "PartitionTime", "DataType", "Url", "ErrorCode", "HttpStatus", "CallerIp", "LocalIp", "String1", "String2", "String3", "String4", "String5", "IsRedirectedUrl", },
-                                com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord.class,
-                                com.tencent.attribution.flink.proto.gdt.GDTHttpPingService.HttpPingRecord.Builder.class);
-                        return null;
-                    }
-                };
-        com.google.protobuf.Descriptors.FileDescriptor
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
                 .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[] {
-                        }, assigner);
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+        internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_com_tencent_attribution_flink_proto_gdt_HttpPingRecord_descriptor,
+                new java.lang.String[]{"ProcessTime", "PartitionTime", "DataType", "Url", "ErrorCode", "HttpStatus", "CallerIp", "LocalIp", "String1", "String2", "String3", "String4", "String5", "IsRedirectedUrl",});
     }
 
     // @@protoc_insertion_point(outer_class_scope)

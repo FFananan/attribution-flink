@@ -1,6 +1,7 @@
 package com.tencent.attribution.flink.connectors;
 
 
+import com.tencent.attribution.flink.proto.gdt.GDTHttpPingService;
 import com.tencent.attribution.flink.serialization.DeserializationSchema;
 import com.tencent.tdbank.msg.TDMsg1;
 import com.tencent.tubemq.client.config.ConsumerConfig;
@@ -40,7 +41,6 @@ import static org.apache.flink.util.TimeUtils.parseDuration;
 
 /**
  * The Flink Tube Consumer.
- *
  */
 public class TubeSourceFunction<T>
         extends RichParallelSourceFunction<T> implements CheckpointedFunction {
@@ -123,7 +123,7 @@ public class TubeSourceFunction<T>
      */
     private transient PullMessageConsumer messagePullConsumer;
 
-    private DeserializationSchema<T> deserializationSchema;
+    private final DeserializationSchema<T> deserializationSchema;
     private final FlinkConnectorRateLimiter rateLimiter;
     private final int messagePerSecondRateLimit;
 
@@ -272,18 +272,12 @@ public class TubeSourceFunction<T>
                     Thread.sleep(400);
                     continue;
                 }
-                //LOG.info("Could not consume messages from tube (errcode: {}, " +
-                                //"errmsg: {}).", consumeResult.getErrCode(),
-                        //consumeResult.getErrMsg());
-
                 Duration idleTime =
                         Duration.between(lastConsumeInstant, Instant.now());
                 if (idleTime.compareTo(maxIdleTime) > 0) {
                     LOG.info("Mark this source as temporarily idle.");
                     ctx.markAsTemporarilyIdle();
-
                 }
-
                 continue;
             }
 
@@ -293,13 +287,28 @@ public class TubeSourceFunction<T>
             synchronized (ctx.getCheckpointLock()) {
                 for (Message message : messageList) {
                     TDMsg1 tdMsg1 = TDMsg1.parseFrom(message.getData());
-                    for (String attr: tdMsg1.getAttrs()) {
+                    for (String attr : tdMsg1.getAttrs()) {
                         Iterator<byte[]> it = tdMsg1.getIterator(attr);
                         if (it != null) {
                             while (it.hasNext()) {
                                 byte[] body = it.next();
                                 if (body != null && body.length > 0) {
+
+                                    // 对body进行一个反序列化，成为一个类对象
+                                    // 可能这里的body是空，那么反序列化之后的对象为空，从而报错
+                                    System.out.println("HttpPingRecord is: " + new String(body));
+                                    System.out.println("-----------------------------------------------");
+
                                     T record = deserializationSchema.deserialize(body);
+
+                                    if (record == null) {
+                                        LOG.error("deserialize failed! The object is null");
+                                    }
+                                    // 这里能够成功打印，说明反序列化是成功的
+                                    GDTHttpPingService.HttpPingRecord record1 = (GDTHttpPingService.HttpPingRecord)record;
+                                    System.out.println(record1.getString5());
+                                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
                                     count++;
                                     try {
                                         // todo

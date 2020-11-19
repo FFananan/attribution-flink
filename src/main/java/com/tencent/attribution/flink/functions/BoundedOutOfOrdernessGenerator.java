@@ -26,7 +26,7 @@ public class BoundedOutOfOrdernessGenerator implements AssignerWithPeriodicWater
     @Override
     public long extractTimestamp(GDTHttpPingService.HttpPingRecord element, long recordTimestamp) {
         long timestamp = element.getProcessTime() * 1000L;
-        currentMaxTimestamp =  Math.max(timestamp, currentMaxTimestamp);
+        currentMaxTimestamp = Math.max(timestamp, currentMaxTimestamp);
         return timestamp;
     }
 }
